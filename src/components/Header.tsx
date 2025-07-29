@@ -8,6 +8,25 @@ import Image from 'next/image'; // Ensure you have the correct import for Image
 const Header = () => {
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
   const [closeTimeout, setCloseTimeout] = React.useState<NodeJS.Timeout | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const headerRef = React.useRef<HTMLElement>(null);
+
+  // Close mobile menu when clicking outside
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
 
   const navItems = [
     {
@@ -71,7 +90,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-4 px-4 sm:px-8">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 py-4 px-4 sm:px-8">
       <div className="container mx-auto bg-white rounded-xl shadow-lg flex justify-between items-center p-3">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
@@ -132,10 +151,67 @@ const Header = () => {
             +1 (437) 432-674
           </button>
         </div>
-         <button className="lg:hidden">
-          <Icon path="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="lg:hidden p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          <Icon path={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"} />
         </button>
       </div>
+      
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white rounded-xl shadow-lg mt-2 mx-4 overflow-hidden">
+          <nav className="py-2">
+            {navItems.map((item) => (
+              <div key={item.name}>
+                {item.dropdown ? (
+                  <details className="group">
+                    <summary className="flex items-center justify-between px-4 py-3 text-gray-700 font-medium cursor-pointer hover:bg-gray-50">
+                      {item.name}
+                      <Icon path="M19.5 8.25l-7.5 7.5-7.5-7.5" className="w-4 h-4 group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div className="bg-gray-50">
+                      {item.dropdown.map((subItem) => (
+                        <a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-8 py-2 text-gray-600 hover:text-red-600"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </details>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </div>
+            ))}
+            
+            {/* Mobile Action Buttons */}
+            <div className="border-t border-gray-200 mt-2 pt-2 px-4 space-y-2">
+              <button className="w-full bg-gradient-to-b from-yellow-400 to-amber-500 text-black font-semibold py-3 px-5 rounded-lg text-sm">
+                $500 in Google Ads Credit
+              </button>
+              <button className="w-full bg-red-600 text-white font-semibold py-3 px-5 rounded-lg text-sm flex items-center justify-center">
+                <img src="https://cdn.searchkings.ca/img/icons/call-50d0164ee7.svg" width="20" height="20" alt="call Icon" className="invert mr-2" />
+                +1 (437) 432-674
+              </button>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
