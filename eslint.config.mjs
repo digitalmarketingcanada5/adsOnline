@@ -17,9 +17,9 @@ const eslintConfig = [
       "@next/next/no-img-element": "off",
       "@next/next/google-font-display": "off",
       "@next/next/no-page-custom-font": "off",
-      "react/no-unescaped-entities": "off"
-    }
-  }
+      "react/no-unescaped-entities": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
