@@ -34,8 +34,8 @@ const PartnersSection = () => {
                            <div className="min-h-[85px] flex items-center justify-center">
                                 <img className="max-h-[85px] shadow-lg rounded-md" alt={partner.title} src={partner.imgSrc} />
                            </div>
-                            <p className="text-base font-semibold leading-tight mb-1 mt-4 min-h-[40px]">{partner.title}</p>
-                            <p className="text-sm font-light leading-tight text-gray-600">{partner.description}</p>
+                            <p className="text-base font-bold leading-tight mb-1 mt-4 min-h-[40px] text-black">{partner.title}</p>
+                            <p className="text-sm font-medium leading-tight text-gray-800">{partner.description}</p>
                         </div>
                     ))}
                 </div>

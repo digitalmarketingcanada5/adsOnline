@@ -104,7 +104,7 @@ const Footer = () => {
           Privacy Policy
         </a>{" "}
         |{" "}
-        <a
+        {/* <a
           href="https://support.google.com/adspolicy/answer/94230?hl=en"
           target="_blank"
           className="underline"
@@ -114,7 +114,7 @@ const Footer = () => {
         |{" "}
         <a href="/accessibility-plans" className="underline">
           Accessibility Plan
-        </a>
+        </a> */}
       </small>
     </footer>
   );
