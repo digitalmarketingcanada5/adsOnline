@@ -18,19 +18,19 @@ const GettingStartedSection = () => {
       description: "Get started in 3 easy steps.",
     },
     {
-      icon: "conversion_path",
+      icon: "https://cdn.searchkings.ca/img/gls-checkmark-invert-e388214438.svg",
       title: "Onboard",
       description:
         "We handle Google&apos;s onboarding process for you and get your account live faster.",
     },
     {
-      icon: "offline_bolt",
+      icon: "https://cdn.searchkings.ca/img/gls-checkmark-invert-e388214438.svg",
       title: "Optimize",
       description:
         "Your dedicated Account Manager continually optimizes lead volume and budget to best suit you.",
     },
     {
-      icon: "call_quality",
+      icon: "https://cdn.searchkings.ca/img/gls-checkmark-invert-e388214438.svg",
       title: "Support",
       description:
         "In addition to our dedicated support line, we train you on how to view and action your leads and more.",

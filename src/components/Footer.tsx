@@ -19,7 +19,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-white shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.1)] py-8 lg:py-16 text-gray-600">
-      <div className="container px-4 sm:px-12 mx-auto flex flex-wrap lg:flex-nowrap justify-between gap-y-8">
+      <div className="container px-4 sm:px-12 mx-auto max-w-6xl flex flex-wrap lg:flex-nowrap justify-center lg:justify-between gap-y-8 text-center lg:text-left">
         <div className="w-full sm:w-1/2 lg:w-1/4 xl:w-1/5 order-1">
           <p className="text-2xl pt-2 pb-2 text-gray-800 font-bold">Services</p>
           <div className="flex flex-col gap-y-1">
@@ -94,7 +94,7 @@ const Footer = () => {
                     </div> */}
         </div>
       </div>
-      <small className="container px-4 sm:px-12 mx-auto block pt-8 text-left w-full text-xs">
+      <small className="container px-4 sm:px-12 mx-auto max-w-6xl block pt-8 text-center lg:text-left w-full text-xs">
         © AdsOnline 2025 |{" "}
         <a href="/terms-conditions" className="underline">
           Terms & Conditions
