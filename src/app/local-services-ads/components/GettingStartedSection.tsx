@@ -16,7 +16,7 @@ const GettingStartedSection = () => {
         {
             icon: "conversion_path",
             title: "Onboard",
-            description: "We handle Google's onboarding process for you and get your account live faster."
+            description: "We handle Google&apos;s onboarding process for you and get your account live faster."
         },
         {
             icon: "offline_bolt",
@@ -34,7 +34,7 @@ const GettingStartedSection = () => {
         <section className="py-16">
             <div className="container px-12 mx-auto">
                 <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">Getting started is easy</h2>
-                <p className="text-black lg:w-[75%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">As the largest manager of Local Services Ads accounts worldwide, we've helped thousands of businesses register into the program, generate more leads, and grow their company.</p>
+                <p className="text-black lg:w-[75%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">As the largest manager of Local Services Ads accounts worldwide, we&apos;ve helped thousands of businesses register into the program, generate more leads, and grow their company.</p>
             </div>
             <div className="container mx-auto px-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -4,7 +4,7 @@ const WhyVideoAdvertisingSection = () => (
     <section className="py-16">
         <div className="container px-12 mx-auto">
             <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">Why use video advertising?</h2>
-            <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">Capture your audience's attention effectively throughout their consumer journey by showcasing your brand in video advertisements, ensuring meaningful engagement during the decision-making process.</p>
+            <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">Capture your audience&apos;s attention effectively throughout their consumer journey by showcasing your brand in video advertisements, ensuring meaningful engagement during the decision-making process.</p>
             <div className="grid md:grid-cols-2 gap-8 xl:gap-14">
                 <div className="h-full">
                     <div className="card relative rounded-3xl p-8 shadow-lg overflow-hidden bg-gradient-to-b from-red-600 to-red-500 !py-0 h-full">

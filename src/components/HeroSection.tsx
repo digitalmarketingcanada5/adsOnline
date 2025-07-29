@@ -60,7 +60,7 @@ const HeroSection = () => {
                 <div className="container mx-auto relative z-10 justify-center items-stretch flex flex-col bg-gray-50 rounded-2xl p-4 md:p-8">
                     <div className="text-center mb-8">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 font-bold text-gray-800">Why Choose AdsOnline?</h2>
-                        <p className="text-lg font-light text-gray-600 max-w-3xl mx-auto">We're committed to delivering transparent, flexible, and results-driven digital marketing solutions tailored to your business needs.</p>
+                        <p className="text-lg font-light text-gray-600 max-w-3xl mx-auto">We&apos;re committed to delivering transparent, flexible, and results-driven digital marketing solutions tailored to your business needs.</p>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -2,6 +2,7 @@
 // Header Component
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import Icon from './Icon';
 import Image from 'next/image'; // Ensure you have the correct import for Image
 const Header = () => {
@@ -74,7 +75,7 @@ const Header = () => {
       <div className="container mx-auto bg-white rounded-xl shadow-lg flex justify-between items-center p-3">
         {/* Left: Logo */}
         <div className="flex-shrink-0">
-          <a href="/" className="block">
+          <Link href="/" className="block">
             <Image
               src="/logo.png"
               alt="AdsOnline Logo"
@@ -82,7 +83,7 @@ const Header = () => {
               height={80}
               className="object-cover"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Center: Navigation */}

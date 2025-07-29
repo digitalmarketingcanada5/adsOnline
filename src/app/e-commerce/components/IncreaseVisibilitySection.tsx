@@ -4,7 +4,7 @@ const IncreaseVisibilitySection = () => (
     <section className="py-16">
         <div className="container px-12 mx-auto">
             <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">Increase the visibility of your products and services</h2>
-            <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">Give online shoppers a strong sense of what you're selling before they click your ad and connect.</p>
+            <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">Give online shoppers a strong sense of what you&apos;re selling before they click your ad and connect.</p>
             <div className="grid md:grid-cols-2 gap-8 xl:gap-14">
                 <div className="h-full">
                     <div className="card relative rounded-3xl p-8 shadow-lg overflow-hidden bg-[#01594d] !py-0 h-full">

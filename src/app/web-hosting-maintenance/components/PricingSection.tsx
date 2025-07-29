@@ -30,7 +30,7 @@ const PricingSection: React.FC = () => {
     <section className="py-16">
       <div className="container mx-auto px-12">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-300 pb-4">Don't let downtime keep you from attracting new customers</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-300 pb-4">Don&apos;t let downtime keep you from attracting new customers</h2>
           <p className="xl:w-[80%] mx-auto text-gray-200">All businesses need robust website hosting and maintenance solutions to protect against viruses, malware, and hackers. Often overlooked, the speed of your website or landing page is a critical factor in how Google determines what you pay for each click and is crucial for achieving top positions in both natural and paid search.</p>
           <p className="xl:w-[80%] mx-auto text-gray-200 mt-4">Our lightening-fast shared cloud service solutions ensure we provide the highest quality for our all of our customers.</p>
           <p className="font-bold mt-8">Choose the plan that works for you.</p>

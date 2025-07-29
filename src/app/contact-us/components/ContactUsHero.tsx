@@ -77,7 +77,7 @@ const ContactUsHero: React.FC = () => {
         <div className="flex flex-col gap-8 w-full lg:w-1/2 pt-8 sm:pt-0 justify-center text-left">
           <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-snug">Contact Us</h1>
           <div>
-            <p className="mb-4">We simplify lead generation so you can focus on growing your business. Our internet marketing experts are always available to assist you with any of your issues, needs or requests. Even if you're just looking for some friendly advice, please don't hesitate to contact us or give us a call.</p>
+            <p className="mb-4">We simplify lead generation so you can focus on growing your business. Our internet marketing experts are always available to assist you with any of your issues, needs or requests. Even if you&apos;re just looking for some friendly advice, please don&apos;t hesitate to contact us or give us a call.</p>
             <p>You are under no obligation to make a purchase and we keep your personal information private and confidential. <a href="/privacy-policy" className="underline">View our privacy policy.</a></p>
           </div>
         </div>

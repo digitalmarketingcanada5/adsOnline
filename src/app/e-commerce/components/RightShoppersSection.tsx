@@ -4,7 +4,7 @@ const RightShoppersSection = () => (
     <section className="py-16">
         <div className="container px-12 mx-auto">
             <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300 pb-2">Reach the right shoppers with the right products</h2>
-            <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">Sell products to the shoppers who matter most–the ones looking for what you offer, <br className="hidden xl:block" /> whether they're at home, on the go, or in-store.</p>
+            <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">Sell products to the shoppers who matter most–the ones looking for what you offer, <br className="hidden xl:block" /> whether they&apos;re at home, on the go, or in-store.</p>
         </div>
         <div className="container grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 px-12 mx-auto">
             <div className="card relative rounded-3xl p-8 shadow-lg bg-gray-50 flex flex-col gap-4 items-center">

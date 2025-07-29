@@ -9,8 +9,8 @@ const GoogleAdsEvaluation: React.FC = () => (
         </div>
         <div className="bg-[#0075E3] rounded-3xl p-8 text-white">
           <h2 className="text-3xl md:text-4xl font-bold">Have a Google Ads account? <br/>Get a free evaluation.</h2>
-          <p className="my-4">As a courtesy, we're happy to offer free Google Ads account evaluations to those interested in improving their results.</p>
-          <p>Our belief is that by demonstrating our expertise, you'll be more likely to choose AdsOnline as a partner when the time comes to grow your campaign.</p>
+          <p className="my-4">As a courtesy, we&apos;re happy to offer free Google Ads account evaluations to those interested in improving their results.</p>
+          <p>Our belief is that by demonstrating our expertise, you&apos;ll be more likely to choose AdsOnline as a partner when the time comes to grow your campaign.</p>
           <a href="/contact-us" className="shrink-0 w-max block mt-8 no-underline shadow-xl rounded-full overflow-hidden">
             <div className="group md:text-lg text-base text-black font-bold bg-white h-full hover:text-white hover:bg-black px-7 py-3 flex items-center gap-2">
               <span className="tracking-tight">Get Started</span>

@@ -2,6 +2,17 @@
 
 import React from 'react';
 
+interface Job {
+  id: number;
+  title: string;
+  description: string;
+  requirements?: string[];
+  skills?: string[];
+  workOn?: string[];
+  profile?: string[] | string;
+  bonus?: string[];
+}
+
 const JobPostings = () => {
   const torontoJobs = [
     {
@@ -176,7 +187,7 @@ const JobPostings = () => {
     }
   ];
 
-  const JobAccordion = ({ job, containerRef, city }: { job: any, containerRef: string, city: string }) => {
+  const JobAccordion = ({ job, containerRef }: { job: Job, containerRef: string }) => {
     return (
       <li className="relative bg-bgGray rounded-xl">
         <button 
@@ -228,12 +239,17 @@ const JobPostings = () => {
               <div className="py-4">
                 <p className="font-bold text-base mb-2">Profile</p>
                 <ul className="checklist">
-                  {job.profile.map((item: string, index: number) => (
+                  {Array.isArray(job.profile) ? job.profile.map((item: string, index: number) => (
                     <li key={index} className="flex gap-2 py-2">
                       <span className="material-symbols-outlined text-primary">check_circle</span>
                       <span>{item}</span>
                     </li>
-                  ))}
+                  )) : (
+                    <li className="flex gap-2 py-2">
+                      <span className="material-symbols-outlined text-primary">check_circle</span>
+                      <span>{job.profile}</span>
+                    </li>
+                  )}
                 </ul>
               </div>
             )}
@@ -298,7 +314,6 @@ const JobPostings = () => {
                 key={`toronto-${job.id}`} 
                 job={job} 
                 containerRef={`toronto-container${job.id}`}
-                city="toronto"
               />
             ))}
           </ul>
@@ -314,7 +329,6 @@ const JobPostings = () => {
                 key={`vancouver-${job.id}`} 
                 job={job} 
                 containerRef={`vancouver-container${job.id}`}
-                city="vancouver"
               />
             ))}
           </ul>
