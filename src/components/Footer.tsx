@@ -85,7 +85,13 @@ const Footer = () => {
                 </a>
               </p>
             </div>
-            <p>Brampton, Ontario, Canada</p>
+            <div>
+              <p>2 County Ct Blvd Unit 400</p>
+              <p>Brampton, ON L6W 3W8, Canada</p>
+              <p className="text-sm text-gray-500 mt-1">
+                1001253521 ONTARIO INC.
+              </p>
+            </div>
           </div>
           {/* <div className="flex flex-wrap items-center gap-4 mt-6">
                         <img className="w-[80px] shadow-lg" alt="Google Premiere Partner Badge" src="https://cdn.searchkings.ca/img/premier-google-partner-2025-82cba7b385.svg" />

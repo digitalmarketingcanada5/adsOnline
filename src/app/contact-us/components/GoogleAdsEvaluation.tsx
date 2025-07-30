@@ -12,7 +12,7 @@ const GoogleAdsEvaluation: React.FC = () => (
             marginHeight={0}
             marginWidth={0}
             scrolling="no"
-            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=Brampton,+Ontario,+Canada&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+            src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=2+County+Ct+Blvd+Unit+400,+Brampton,+ON+L6W+3W8,+Canada&ie=UTF8&t=&z=16&iwloc=B&output=embed"
           ></iframe>
         </div>
         <div className="bg-[#0075E3] rounded-3xl p-8 text-white">
