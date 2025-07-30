@@ -26,7 +26,7 @@ const PartnersLogoCloud: React.FC = () => {
   return (
     <section className="py-16">
       <div className="container px-12 mx-auto">
-        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300 mb-8">A few of our partners</h2>
+        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8">A few of our partners</h2>
         <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
           {logos.map(logo => <img key={logo} src={logo} alt="Partner logo" className="max-h-16" />)}
         </div>

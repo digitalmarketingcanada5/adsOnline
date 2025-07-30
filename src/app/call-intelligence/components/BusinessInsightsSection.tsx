@@ -48,10 +48,10 @@ const BusinessInsightsSection = () => {
   return (
     <section className="py-16">
       <div className="container px-12 mx-auto">
-        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
           Powerful Business Insights
         </h2>
-        <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">
+        <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-700 dark:text-gray-300">
           Our AdsOnline app lets you see your Call Intelligence™ data and how
           you&apos;re doing at any time, from anywhere.
         </p>
@@ -63,7 +63,7 @@ const BusinessInsightsSection = () => {
               <li key={tab.name} className="w-full flex min-w-[160px]">
                 <div
                   onClick={() => setActiveTab(index)}
-                  className={`w-full flex items-center gap-2 px-4 py-5 justify-center rounded-full sm:rounded-lg sm:justify-start sm:py-2 lg:shadow-lg cursor-pointer transition-all ${activeTab === index ? "bg-gray-800 text-white" : "bg-white text-black shadow-md"}`}
+                  className={`w-full flex items-center gap-2 px-4 py-5 justify-center rounded-full sm:rounded-lg sm:justify-start sm:py-2 lg:shadow-lg cursor-pointer transition-all ${activeTab === index ? "bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900" : "bg-white text-black shadow-md dark:bg-gray-700 dark:text-white"}`}
                 >
                   <MaterialIcon className="hidden sm:block">
                     {tab.icon}
@@ -87,10 +87,10 @@ const BusinessInsightsSection = () => {
         </div>
         <div className="flex items-center lg:w-1/4 w-full">
           <div className="xl:max-w-[390px]">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
               {tabContent[activeTab].title}
             </h3>
-            <p className="font-light text-gray-600">
+            <p className="font-light text-gray-700 dark:text-gray-300">
               {tabContent[activeTab].text}
             </p>
           </div>

@@ -3,10 +3,10 @@ import React from "react";
 const HowItWorksSection = () => (
   <section className="py-16">
     <div className="container px-12 mx-auto">
-      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+      <h2 className="font-bold md:text-center text-3xl md:text-4xl text-gray-900 dark:text-gray-100">
         How it works
       </h2>
-      <p className="text-black lg:w-[95%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">
+      <p className="text-black lg:w-[95%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-700 dark:text-gray-300">
         When a customer books a Google-verified service provider, they know
         they&apos;re getting guaranteed services from a trustworthy and
         qualified business.

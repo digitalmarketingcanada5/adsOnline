@@ -33,8 +33,8 @@ const GettingStartedSection = () => {
     return (
         <section className="py-16">
             <div className="container px-12 mx-auto">
-                <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">Getting started is easy</h2>
-                <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">Our team of video ad experts will harness the power of YouTube advertising to grow your brand and increase awareness. Reach your demographic during their commute, while browsing on their phone, at work, or even while watching TV at home.</p>
+                <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">Getting started is easy</h2>
+                <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-700 dark:text-gray-300">Our team of video ad experts will harness the power of YouTube advertising to grow your brand and increase awareness. Reach your demographic during their commute, while browsing on their phone, at work, or even while watching TV at home.</p>
             </div>
             <div className="container mx-auto px-12">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -15,9 +15,9 @@ const ContactSection = () => (
             <div className="flex flex-col lg:flex-row gap-8 sm:gap-16">
                 <div className="flex flex-col gap-8 w-full lg:w-1/2 justify-between">
                     <div className="flex flex-col gap-8 lg:w-3/4">
-                        <h2 className="text-4xl lg:text-5xl font-bold leading-snug mb-0">Contact Us</h2>
-                        <p className="text-gray-200">Layer in Call Intelligence™ to your current advertising, or use it to help you achieve specific goals. Either way, our process to get started is simple.</p>
-                        <p className="text-gray-200">You are under no obligation to make a purchase and we keep your personal information private and confidential. <a href="/privacy-policy" className="underline">View our privacy policy.</a></p>
+                        <h2 className="text-4xl lg:text-5xl font-bold leading-snug mb-0 text-gray-900 dark:text-gray-100">Contact Us</h2>
+                        <p className="text-gray-700 dark:text-gray-300">Layer in Call Intelligence™ to your current advertising, or use it to help you achieve specific goals. Either way, our process to get started is simple.</p>
+                        <p className="text-gray-700 dark:text-gray-300">You are under no obligation to make a purchase and we keep your personal information private and confidential. <a href="/privacy-policy" className="underline">View our privacy policy.</a></p>
                     </div>
                     <div className="font-bold bg-[#0075E3] rounded-3xl">
                         <div className="flex md:flex-row flex-col p-8 text-white justify-between md:items-center md:gap-2 gap-4">

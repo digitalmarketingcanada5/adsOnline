@@ -40,10 +40,10 @@ const GettingStartedSection = () => {
   return (
     <section className="py-16">
       <div className="container px-12 mx-auto">
-        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
           Getting started is easy
         </h2>
-        <p className="text-black lg:w-[75%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">
+        <p className="text-black lg:w-[75%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-700 dark:text-gray-300">
           As the largest manager of Local Services Ads accounts worldwide,
           we&apos;ve helped thousands of businesses register into the program,
           generate more leads, and grow their company.

@@ -30,17 +30,17 @@ const PricingSection: React.FC = () => {
     <section className="py-16">
       <div className="container mx-auto px-12">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-300 pb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 pb-4">
             Don&apos;t let downtime keep you from attracting new customers
           </h2>
-          <p className="xl:w-[80%] mx-auto text-gray-200">
+          <p className="xl:w-[80%] mx-auto text-gray-700 dark:text-gray-300">
             All businesses need robust website hosting and maintenance solutions
             to protect against viruses, malware, and hackers. Often overlooked,
             the speed of your website or landing page is a critical factor in
             how Google determines what you pay for each click and is crucial for
             achieving top positions in both natural and paid search.
           </p>
-          <p className="xl:w-[80%] mx-auto text-gray-200 mt-4">
+          <p className="xl:w-[80%] mx-auto text-gray-700 dark:text-gray-300 mt-4">
             Our lightening-fast shared cloud service solutions ensure we provide
             the highest quality for our all of our customers.
           </p>
@@ -52,7 +52,7 @@ const PricingSection: React.FC = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="bg-gray-800 rounded-t-3xl p-4 text-center"
+              className="bg-gray-50 rounded-t-3xl p-4 text-center text-gray-300 dark:text-gray-700"
             >
               <strong className="text-lg">{plan.name}</strong>
               <span className="lg:text-base text-xs block leading-tight">
@@ -66,7 +66,7 @@ const PricingSection: React.FC = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="bg-gray-600 rounded-b-3xl p-4 text-center"
+              className="bg-gray-50 rounded-b-3xl p-4 text-center text-gray-300 dark:text-gray-700"
             >
               <span className="text-sm">Starting From</span>
               <br />
@@ -91,10 +91,10 @@ const PricingSection: React.FC = () => {
               {feature.values.map((value, index) => (
                 <div
                   key={index}
-                  className="w-full text-xs md:text-base bg-gray-900 flex items-center justify-center h-12 rounded-lg"
+                  className="w-full text-xs md:text-base bg-gray-50 flex items-center justify-center h-12 rounded-lg"
                 >
                   {value === true ? (
-                    <MaterialIcon className="text-white rounded-full bg-gray-900 !text-sm w-5 h-5 flex justify-center items-center">
+                    <MaterialIcon className="text-gray-300 dark:text-gray-700 rounded-full bg-gray-50 !text-sm w-5 h-5 flex justify-center items-center">
                       check
                     </MaterialIcon>
                   ) : (

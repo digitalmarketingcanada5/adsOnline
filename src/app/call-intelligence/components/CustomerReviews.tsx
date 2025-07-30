@@ -33,8 +33,8 @@ const CustomerReviews = () => {
     return (
         <section className="py-16">
             <div className="container px-12 mx-auto">
-                <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">What our customers have to say</h2>
-                <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">What our customers have to say about their experience with AdsOnline and Call Intelligence™</p>
+                <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">What our customers have to say</h2>
+                <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-700 dark:text-gray-300">What our customers have to say about their experience with AdsOnline and Call Intelligence™</p>
             </div>
             <div className="container mx-auto">
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center px-12">
@@ -45,16 +45,16 @@ const CustomerReviews = () => {
                          <div className="flex text-yellow-500">
                                 {[...Array(5)].map((_, i) => <MaterialIcon key={i}>star</MaterialIcon>)}
                          </div>
-                        <div className="text-base lg:text-xl text-gray-200">{reviews[activeIndex].quote}</div>
+                        <div className="text-base lg:text-xl text-gray-800 dark:text-gray-200">{reviews[activeIndex].quote}</div>
                         <div>
-                            <p className="font-bold text-lg">{reviews[activeIndex].name}</p>
-                            <p className="text-base text-gray-500">{reviews[activeIndex].company}</p>
+                            <p className="font-bold text-lg text-gray-900 dark:text-gray-100">{reviews[activeIndex].name}</p>
+                            <p className="text-base text-gray-600 dark:text-gray-400">{reviews[activeIndex].company}</p>
                         </div>
                     </div>
                 </div>
                  <div className="flex justify-center gap-2 mt-8">
                     {reviews.map((_, index) => (
-                        <button key={index} onClick={() => setActiveIndex(index)} className={`w-3 h-3 rounded-full transition-all ${activeIndex === index ? 'bg-red-500' : 'bg-gray-300'}`}></button>
+                        <button key={index} onClick={() => setActiveIndex(index)} className={`w-3 h-3 rounded-full transition-all ${activeIndex === index ? 'bg-red-500' : 'bg-gray-300 dark:bg-gray-600'}`}></button>
                     ))}
                 </div>
             </div>

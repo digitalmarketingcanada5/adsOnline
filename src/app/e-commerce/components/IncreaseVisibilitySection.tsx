@@ -3,10 +3,10 @@ import React from "react";
 const IncreaseVisibilitySection = () => (
   <section className="py-16">
     <div className="container px-12 mx-auto">
-      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
         Increase the visibility of your products and services
       </h2>
-      <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-200">
+      <p className="text-black lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-left text-gray-700 dark:text-gray-300">
         Give online shoppers a strong sense of what you&apos;re selling before
         they click your ad and connect.
       </p>
@@ -23,7 +23,7 @@ const IncreaseVisibilitySection = () => (
           </div>
         </div>
         <div className="flex items-center h-full">
-          <ul className="w-full px-0 text-gray-200 text-xl my-0 py-0 space-y-4">
+          <ul className="w-full px-0 text-gray-700 dark:text-gray-300 text-xl my-0 py-0 space-y-4">
             <li className="flex items-start">
               <img
                 className="my-0 mr-4 mt-1"

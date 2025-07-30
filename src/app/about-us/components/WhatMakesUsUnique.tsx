@@ -34,8 +34,8 @@ const WhatMakesUsUnique: React.FC = () => {
     <section className="py-16">
       <div className="container mx-auto px-12">
         <div className="w-full pb-8 lg:text-center text-left">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-300">What makes us unique?</h2>
-          <p className="text-gray-200 mt-4">We are experts at managing scalable search, remarketing, display and video advertising campaigns.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">What makes us unique?</h2>
+          <p className="text-gray-700 dark:text-gray-300 mt-4">We are experts at managing scalable search, remarketing, display and video advertising campaigns.</p>
         </div>
         <div className="grid lg:grid-cols-6 gap-8">
           {uniquePoints.map((point, index) => (

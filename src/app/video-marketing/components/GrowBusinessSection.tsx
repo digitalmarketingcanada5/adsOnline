@@ -3,10 +3,10 @@ import React from "react";
 const GrowBusinessSection = () => (
   <section className="py-16">
     <div className="container px-12 mx-auto">
-      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
         Grow your business with video ads
       </h2>
-      <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">
+      <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-700 dark:text-gray-300">
         Present your brand and speak to viewers at the moment they&apos;re ready
         and willing to pay attention, <br className="hidden xl:block" /> across
         every stage of their consumer journey.

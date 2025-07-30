@@ -3,10 +3,10 @@ import React from "react";
 const RightShoppersSection = () => (
   <section className="py-16">
     <div className="container px-12 mx-auto">
-      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300 pb-2">
+      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 pb-2">
         Reach the right shoppers with the right products
       </h2>
-      <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-200">
+      <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-700 dark:text-gray-300">
         Sell products to the shoppers who matter most–the ones looking for what
         you offer, <br className="hidden xl:block" /> whether they&apos;re at
         home, on the go, or in-store.

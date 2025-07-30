@@ -3,10 +3,10 @@ import React from "react";
 const ConversionRatesSection = () => (
   <section className="py-16">
     <div className="container px-12 mx-auto">
-      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-300">
+      <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
         Measure & improve conversion rates
       </h2>
-      <p className="text-black mb-8 font-light md:text-center text-left text-gray-200">
+      <p className="text-black mb-8 font-light md:text-center text-left text-gray-700 dark:text-gray-300">
         Our sites focus on the core aspects of a businesses product or service
         offering. This allows us <br className="hidden xl:block" /> to focus the
         customer&apos;s attention on calling or filling out a form.
@@ -24,7 +24,7 @@ const ConversionRatesSection = () => (
           </div>
         </div>
         <div className="flex items-center h-full">
-          <ul className="w-full px-0 text-gray-200 text-xl my-0 py-0 space-y-4">
+          <ul className="w-full px-0 text-gray-700 dark:text-gray-300 text-xl my-0 py-0 space-y-4">
             <li className="flex items-start">
               <img
                 className="my-0 mr-4 mt-1"
