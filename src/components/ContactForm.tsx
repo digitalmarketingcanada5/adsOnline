@@ -103,7 +103,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
         >
-          <MaterialIcon>close</MaterialIcon>
+          <img src="/close.png" alt="close" className="w-6 h-6" />
         </button>
       )}
       <p className={`font-bold ${isModal ? 'text-2xl mb-4' : 'text-3xl md:mb-8'}`}>Get Started</p>
@@ -208,12 +208,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
           disabled={isSubmitting}
           className="w-max block no-underline rounded-full bg-gradient-to-t from-red-600 to-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <div className="group transition-all text-lg text-white font-bold px-7 py-3 flex items-center gap-2 rounded-full ease-in-out duration-300 shadow-xl hover:bg-black disabled:hover:bg-gradient-to-t disabled:hover:from-red-600 disabled:hover:to-red-500">
+          <div className="group transition-all text-lg text-white font-bold px-7 py-3 flex items-center gap-2 rounded-full ease-in-out duration-300 shadow-xl hover:bg-red-400 disabled:hover:bg-gradient-to-t disabled:hover:from-red-600 disabled:hover:to-red-500">
             {isSubmitting ? "Sending..." : "Submit"}
             {!isSubmitting && (
-              <span className="material-symbols-outlined relative -top-[2px]">
-                arrow_outward
-              </span>
+              <img src="/right-up.png" alt="chat" className="w-6 h-6" />
             )}
           </div>
         </button>

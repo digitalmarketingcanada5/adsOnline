@@ -76,7 +76,7 @@ const ReviewsSection = () => {
                     </div>
                 </div>
 
-                <a href="#" className="shrink-0 w-max block mt-12 no-underline shadow-xl rounded-full overflow-hidden mx-auto bg-white">
+                <a href="#" className="shrink-0 w-max block mt-12 no-underline shadow-xl rounded-full overflow-hidden mx-auto bg-white hidden">
                     <div className="group md:text-lg text-base text-gray-900 font-bold h-full hover:bg-gray-100 px-7 py-3 flex items-center gap-2 transition-all duration-300">
                         <img src="https://cdn.searchkings.ca/img/icons/task_alt-07875e2f17.svg" width="24" height="24" alt="Google Icon"/>
                         <span className="tracking-tight">Our Google Reviews</span>

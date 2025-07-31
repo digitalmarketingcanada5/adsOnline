@@ -1,4 +1,5 @@
 import AboutSection from "@/components/AboutSection";
+import AwardsSection from "@/components/AwardsSection";
 import GettingStartedSection from "@/components/GettingStartedSection";
 import HeroSection from "@/components/HeroSection";
 import LearnMoreSection from "@/components/LearnMoreSection";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
+      <AwardsSection />
       <ServicesSection />
       {/* <LearnMoreSection /> */}
       <ReviewsSection />

@@ -166,7 +166,10 @@ const Header = () => {
           >
             $500 in Google Ads Credit
           </button>
-          <button className="bg-red-600 text-white font-semibold py-3 px-5 rounded-lg text-sm flex items-center">
+          <a 
+            href="tel:+14374326746"
+            className="bg-red-600 text-white font-semibold py-3 px-5 rounded-lg text-sm flex items-center hover:bg-red-700 transition-colors"
+          >
             <img
               src="https://cdn.searchkings.ca/img/icons/call-50d0164ee7.svg"
               width="24"
@@ -175,7 +178,7 @@ const Header = () => {
               className="invert group-hover:invert"
             />
             +1 (437) 432-6746
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -243,7 +246,10 @@ const Header = () => {
               >
                 $500 in Google Ads Credit
               </button>
-              <button className="w-full bg-red-600 text-white font-bold py-3 px-5 rounded-lg text-sm flex items-center justify-center shadow-md hover:bg-red-700 hover:shadow-lg transition-all">
+              <a 
+                href="tel:+14374326746"
+                className="w-full bg-red-600 text-white font-bold py-3 px-5 rounded-lg text-sm flex items-center justify-center shadow-md hover:bg-red-700 hover:shadow-lg transition-all"
+              >
                 <img
                   src="https://cdn.searchkings.ca/img/icons/call-50d0164ee7.svg"
                   width="20"
@@ -252,7 +258,7 @@ const Header = () => {
                   className="invert mr-2"
                 />
                 +1 (437) 432-6746
-              </button>
+              </a>
             </div>
           </nav>
         </div>

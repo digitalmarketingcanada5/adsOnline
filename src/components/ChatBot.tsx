@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import MaterialIcon from "@/components/MaterialIcon";
 import ContactForm from "@/components/ContactForm";
 import { Toaster } from "react-hot-toast";
 import { useChatBot } from "@/contexts/ChatBotContext";
@@ -17,7 +16,7 @@ const ChatBot: React.FC = () => {
         className="fixed bottom-6 right-6 bg-gradient-to-t from-red-600 to-red-500 text-white p-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 z-50 group"
       >
         <div className="flex items-center gap-2">
-          <MaterialIcon>chat</MaterialIcon>
+          <img src="/chat.png" alt="chat" className="w-6 h-6" />
           <span className="hidden md:inline font-medium">Text Our Experts</span>
         </div>
       </button>
@@ -47,7 +46,7 @@ const ChatBot: React.FC = () => {
                     onClick={closeModal}
                     className="text-white hover:text-gray-200 transition-colors ml-2 flex-shrink-0"
                   >
-                    <MaterialIcon>close</MaterialIcon>
+                    <img src="/close.png" alt="close" className="w-6 h-6 invert" />
                   </button>
                 </div>
               </div>

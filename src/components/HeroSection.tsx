@@ -1,5 +1,5 @@
 // START:HeroSection
-// Hero Section Component
+// Hero      description: "Advanced analytics that turn conversations into conversions.",Section Component
 "use client";
 import React from "react";
 import MaterialIcon from "./MaterialIcon";
@@ -11,17 +11,17 @@ const HeroSection = () => {
     {
       icon: "layers_clear",
       title: "No Contracts",
-      description: "We work month-to-month with all clients.",
+      description: "Freedom to adapt - month-to-month partnerships built on performance.",
     },
     {
       icon: "account_balance_wallet",
       title: "Flexible Budgets",
-      description: "Adjust your budget and generate leads when you need.",
+      description: "Scale up or down seamlessly - your success drives your investment.",
     },
     {
       icon: "money_off",
       title: "Flat-rate Fee",
-      description: "Creating scalable pricing structures so you pay less.",
+      description: "Transparent pricing that grows with you, not against you.",
     },
     {
       icon: "auto_awesome",
@@ -49,8 +49,8 @@ const HeroSection = () => {
         <div className="relative z-10 flex flex-col justify-center w-full mx-auto h-full mt-0 mb-0 items-center pt-24 md:pt-40">
           <div className="w-full lg:w-4/5 flex lg:justify-center flex-col">
             <h1 className="mb-0 mt-0 pb-0 w-full mx-auto text-4xl tracking-tight md:text-5xl xl:text-6xl lg:text-center font-bold !leading-tight text-gray-800">
-              Helping you win with
-              <br /> Google & Microsoft Ads
+              Drive Growth with
+              <br /> Smart Digital Advertising
             </h1>
             <div className="pt-0 flex md:items-center lg:justify-center w-full flex-col md:flex-row gap-0 md:gap-4 mt-4">
               <div className="flex items-center gap-1">
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 1,005+ Google Customer Reviews{" "}
                 <span className="hidden md:inline">|</span>{" "}
                 <br className="md:hidden" />
-                Trusted by 300+ customers
+                Helping 300+ businesses thrive online
               </span>
             </div>
             <div className="flex flex-wrap gap-4 lg:justify-center mt-6">
@@ -111,12 +111,12 @@ const HeroSection = () => {
         <div className="container mx-auto relative z-10 justify-center items-stretch flex flex-col bg-gray-50 rounded-2xl p-4 md:p-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 font-bold text-gray-800">
-              Why Choose AdsOnline?
+              Your Success, Our Mission
             </h2>
             <p className="text-lg font-light text-gray-600 max-w-3xl mx-auto">
-              We&apos;re committed to delivering transparent, flexible, and
-              results-driven digital marketing solutions tailored to your
-              business needs.
+              Experience the AdsOnline difference with transparent partnerships, 
+              data-driven strategies, and cutting-edge technology that delivers 
+              measurable results for your business.
             </p>
           </div>
 
