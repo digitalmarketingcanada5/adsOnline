@@ -35,7 +35,7 @@ const GettingStartedSection = () => {
                         <p className="mb-8 text-gray-700 dark:text-gray-300">Make the switch to AdsOnline today.</p>
                         <a href="/contact-us" className="shrink-0 w-max block mt-4 no-underline shadow-xl rounded-full overflow-hidden bg-gradient-to-r from-red-600 to-red-500">
                             <div className="group md:text-lg text-base text-white font-bold h-full hover:from-black hover:to-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                                <span className="tracking-tight">Get Started</span>
+                                <span className="tracking-tight">Contact Us</span>
                                 <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="invert group-hover:invert" />
                             </div>
                         </a>

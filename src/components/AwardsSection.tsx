@@ -22,7 +22,7 @@ const AwardsSection = () => {
           {/* Middle - Content */}
           <div className="lg:w-1/2 text-center lg:text-left">
             <h2 className="text-xl md:text-[26px] lg:text-4xl mb-4 font-bold text-gray-800">
-              2025 Google Ads <br className="xl:block" />
+              2024 Google Ads <br className="xl:block" />
               Best Agency in Toronto
             </h2>
             <p className="leading-[1.6] sm:text-xl sm:leading-[1.3] xl:text-[28px] font-light text-gray-600 mb-4">
