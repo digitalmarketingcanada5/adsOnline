@@ -13,6 +13,7 @@ import {
 import { Tailwind } from "@react-email/tailwind";
 
 type ContactFormEmailProps = {
+  name: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -23,6 +24,7 @@ type ContactFormEmailProps = {
 };
 
 export default function ContactFormEmail({
+  name,
   firstName,
   lastName,
   email,
@@ -34,7 +36,7 @@ export default function ContactFormEmail({
   return (
     <Html>
       <Head />
-      <Preview>New contact form submission from {firstName} {lastName}</Preview>
+      <Preview>New contact form submission from {((firstName || name) + ' ' + (lastName || '')).trim()}</Preview>
       <Tailwind>
         <Body className="bg-gray-100 text-black">
           <Container>
@@ -45,7 +47,7 @@ export default function ContactFormEmail({
               
               <Section className="mb-6">
                 <Heading className="text-lg font-semibold mb-3">Contact Information</Heading>
-                <Text className="mb-2"><strong>Name:</strong> {firstName} {lastName}</Text>
+                <Text className="mb-2"><strong>Name:</strong> {((firstName || name) + ' ' + (lastName || '')).trim()}</Text>
                 <Text className="mb-2"><strong>Email:</strong> {email}</Text>
                 <Text className="mb-2"><strong>Phone:</strong> {phone}</Text>
               </Section>

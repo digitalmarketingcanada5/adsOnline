@@ -12,6 +12,7 @@ interface ContactFormProps {
 
 const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) => {
   const [formData, setFormData] = useState<ContactFormData>({
+    name: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -39,8 +40,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Split full name into first and last name
-    const nameParts = formData.firstName.trim().split(" ");
+    // Split name into first and last name for email purposes
+    const nameParts = formData.name.trim().split(" ");
     const firstName = nameParts[0] || "";
     const lastName = nameParts.slice(1).join(" ") || "";
 
@@ -74,6 +75,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
         });
         // Reset form
         setFormData({
+          name: "",
           firstName: "",
           lastName: "",
           email: "",
@@ -109,14 +111,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
         <div className={`grid gap-x-4 ${isModal ? 'grid-cols-1 gap-y-3' : 'md:grid-cols-2'}`}>
           <div className={isModal ? 'mb-3' : 'mb-4'}>
             <label className="block text-sm font-medium text-gray-700">
-              First & Last Name <span className="text-red-500">*</span>
+              Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
-              name="firstName"
-              value={formData.firstName}
+              name="name"
+              value={formData.name}
               onChange={handleInputChange}
-              placeholder="Name"
+              placeholder="Enter your name"
               required
               className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
             />
@@ -209,9 +211,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
           <div className="group transition-all text-lg text-white font-bold px-7 py-3 flex items-center gap-2 rounded-full ease-in-out duration-300 shadow-xl hover:bg-black disabled:hover:bg-gradient-to-t disabled:hover:from-red-600 disabled:hover:to-red-500">
             {isSubmitting ? "Sending..." : "Submit"}
             {!isSubmitting && (
-              <MaterialIcon className="relative -top-px">
+              <span className="material-symbols-outlined relative -top-[2px]">
                 arrow_outward
-              </MaterialIcon>
+              </span>
             )}
           </div>
         </button>

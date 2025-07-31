@@ -16,6 +16,7 @@ const EMAIL_CONFIG = {
 };
 
 export interface ContactFormData {
+  name: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -46,6 +47,7 @@ const getErrorMessage = (error: unknown): string => {
 
 export const sendContactEmail = async (formData: ContactFormData) => {
   const {
+    name,
     firstName,
     lastName,
     email,
@@ -56,14 +58,9 @@ export const sendContactEmail = async (formData: ContactFormData) => {
   } = formData;
 
   // Server-side validation
-  if (!validateString(firstName, 100)) {
+  if (!validateString(name, 100)) {
     return {
-      error: "Invalid first name",
-    };
-  }
-  if (!validateString(lastName, 100)) {
-    return {
-      error: "Invalid last name",
+      error: "Invalid name",
     };
   }
   if (!validateString(email, 500)) {
@@ -104,9 +101,10 @@ export const sendContactEmail = async (formData: ContactFormData) => {
     data = await resend.emails.send({
       from: EMAIL_CONFIG.sender,
       to: recipient,
-      subject: `New Contact Form Submission from ${firstName} ${lastName}`,
+      subject: `New Contact Form Submission from ${firstName || name} ${lastName || ''}`.trim(),
       replyTo: email,
       react: React.createElement(ContactFormEmail, {
+        name,
         firstName,
         lastName,
         email,
