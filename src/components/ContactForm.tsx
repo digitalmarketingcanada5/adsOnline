@@ -94,19 +94,20 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
   };
 
   return (
-    <div className={`card relative rounded-3xl p-8 shadow-lg overflow-hidden bg-gray-50 w-full text-black ${isModal ? 'max-w-lg mx-auto' : ''}`}>
-      {isModal && (
+    <div className={`card relative rounded-3xl overflow-hidden bg-gray-50 w-full text-black ${isModal ? 'p-4' : 'p-8 shadow-lg max-w-lg mx-auto'}`}>
+      {/* Remove the close button when in modal mode since header already has one */}
+      {!isModal && (
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10"
         >
           <MaterialIcon>close</MaterialIcon>
         </button>
       )}
-      <p className="text-3xl font-bold md:mb-8">Get Started</p>
+      <p className={`font-bold ${isModal ? 'text-2xl mb-4' : 'text-3xl md:mb-8'}`}>Get Started</p>
       <form onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 gap-x-4">
-          <div className="mb-4">
+        <div className={`grid gap-x-4 ${isModal ? 'grid-cols-1 gap-y-3' : 'md:grid-cols-2'}`}>
+          <div className={isModal ? 'mb-3' : 'mb-4'}>
             <label className="block text-sm font-medium text-gray-700">
               First & Last Name <span className="text-red-500">*</span>
             </label>
@@ -120,7 +121,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
               className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
             />
           </div>
-          <div className="mb-4">
+          <div className={isModal ? 'mb-3' : 'mb-4'}>
             <label className="block text-sm font-medium text-gray-700">
               Phone <span className="text-red-500">*</span>
             </label>
@@ -134,7 +135,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
               className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
             />
           </div>
-          <div className="mb-4 md:col-span-2">
+          <div className={`${isModal ? 'mb-3' : 'mb-4'} ${isModal ? '' : 'md:col-span-2'}`}>
             <label className="block text-sm font-medium text-gray-700">
               Email <span className="text-red-500">*</span>
             </label>
@@ -148,7 +149,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
               className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500"
             />
           </div>
-          <div className="mb-4">
+          <div className={isModal ? 'mb-3' : 'mb-4'}>
             <label className="block text-sm font-medium text-gray-700">
               Inquiry Type <span className="text-red-500">*</span>
             </label>
@@ -168,7 +169,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
               <option value="Other">Other</option>
             </select>
           </div>
-          <div className="mb-4">
+          <div className={isModal ? 'mb-3' : 'mb-4'}>
             <label className="block text-sm font-medium text-gray-700">
               How Did You Hear About Us? <span className="text-red-500">*</span>
             </label>
@@ -187,7 +188,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ isModal = false, onClose }) =
               <option value="Other">Other</option>
             </select>
           </div>
-          <div className="mb-4 md:col-span-2">
+          <div className={`${isModal ? 'mb-3' : 'mb-4'} ${isModal ? '' : 'md:col-span-2'}`}>
             <label className="block text-sm font-medium text-gray-700">
               Message
             </label>

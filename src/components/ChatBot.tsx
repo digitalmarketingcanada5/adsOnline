@@ -24,32 +24,41 @@ const ChatBot: React.FC = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Modal Header */}
-            <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-6 rounded-t-3xl">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="text-xl font-bold">Need help? Text us.</h3>
-                  <p className="text-sm opacity-90">
-                    Enter your contact info, and our team will text you back as soon as possible.
-                  </p>
+        <>
+          {/* Very subtle background overlay - click to close */}
+          <div 
+            className="fixed inset-0 bg-transparent z-40"
+            onClick={closeModal}
+          ></div>
+          
+          {/* Modal positioned at bottom-right */}
+          <div className="fixed bottom-20 right-6 z-50 w-96 max-w-[calc(100vw-3rem)]">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+              {/* Modal Header */}
+              <div className="bg-gradient-to-r from-red-600 to-red-500 text-white p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold">Need help? Text us.</h3>
+                    <p className="text-sm opacity-90">
+                      Enter your contact info, and our team will text you back as soon as possible.
+                    </p>
+                  </div>
+                  <button
+                    onClick={closeModal}
+                    className="text-white hover:text-gray-200 transition-colors ml-2 flex-shrink-0"
+                  >
+                    <MaterialIcon>close</MaterialIcon>
+                  </button>
                 </div>
-                <button
-                  onClick={closeModal}
-                  className="text-white hover:text-gray-200 transition-colors"
-                >
-                  <MaterialIcon>close</MaterialIcon>
-                </button>
+              </div>
+              
+              {/* Contact Form */}
+              <div className="max-h-[60vh] overflow-y-auto">
+                <ContactForm isModal={true} onClose={closeModal} />
               </div>
             </div>
-            
-            {/* Contact Form */}
-            <div className="p-6">
-              <ContactForm isModal={true} onClose={closeModal} />
-            </div>
           </div>
-        </div>
+        </>
       )}
       
       <Toaster 
