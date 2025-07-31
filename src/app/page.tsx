@@ -1,5 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import AwardsSection from "@/components/AwardsSection";
+import CallToActionBand from "@/components/CallToActionBand";
 import GettingStartedSection from "@/components/GettingStartedSection";
 import HeroSection from "@/components/HeroSection";
 import LearnMoreSection from "@/components/LearnMoreSection";
@@ -12,11 +13,14 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
+      <CallToActionBand />
       <AwardsSection />
       <ServicesSection />
+      <CallToActionBand />
       {/* <LearnMoreSection /> */}
       <ReviewsSection />
       <GettingStartedSection />
+      <CallToActionBand />
       <PartnersSection />
     </>
   );

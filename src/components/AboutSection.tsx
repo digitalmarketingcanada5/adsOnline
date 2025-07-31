@@ -33,12 +33,12 @@ const AboutSection = () => (
                                 <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="group-hover:invert"/>
                             </div>
                         </a>
-                        <a href="/contact-us/" className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-white">
+                        {/* <a href="/contact-us/" className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-white">
                             <div className="group md:text-lg text-base text-white font-bold bg-transparent h-full hover:text-red-600 hover:bg-white px-7 py-3 flex items-center gap-2 transition-all duration-300">
                                 <span className="tracking-tight">Contact Us</span>
                                 <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="invert group-hover:invert-0"/>
                             </div>
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>
