@@ -17,8 +17,6 @@ type ContactFormEmailProps = {
   lastName: string;
   email: string;
   phone: string;
-  companyName: string;
-  companyWebsite: string;
   inquiryType: string;
   hearAboutUs: string;
   message: string;
@@ -29,8 +27,6 @@ export default function ContactFormEmail({
   lastName,
   email,
   phone,
-  companyName,
-  companyWebsite,
   inquiryType,
   hearAboutUs,
   message,
@@ -52,12 +48,6 @@ export default function ContactFormEmail({
                 <Text className="mb-2"><strong>Name:</strong> {firstName} {lastName}</Text>
                 <Text className="mb-2"><strong>Email:</strong> {email}</Text>
                 <Text className="mb-2"><strong>Phone:</strong> {phone}</Text>
-              </Section>
-
-              <Section className="mb-6">
-                <Heading className="text-lg font-semibold mb-3">Company Information</Heading>
-                <Text className="mb-2"><strong>Company Name:</strong> {companyName}</Text>
-                <Text className="mb-2"><strong>Company Website:</strong> {companyWebsite}</Text>
               </Section>
 
               <Section className="mb-6">

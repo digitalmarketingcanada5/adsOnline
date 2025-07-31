@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
+import { ChatBotProvider } from "@/contexts/ChatBotContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -66,9 +68,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ChatBotProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <ChatBot />
+        </ChatBotProvider>
       </body>
     </html>
   );

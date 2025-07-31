@@ -1,8 +1,12 @@
 // START:HeroSection
 // Hero Section Component
+"use client";
 import React from "react";
 import MaterialIcon from "./MaterialIcon";
+import { useChatBot } from "@/contexts/ChatBotContext";
+
 const HeroSection = () => {
+  const { openModal } = useChatBot();
   const features = [
     {
       icon: "layers_clear",
@@ -60,10 +64,10 @@ const HeroSection = () => {
                 ))}
               </div>
               <span className="text-base lg:text-xl font-light text-gray-600">
-                1,800+ Google Customer Reviews{" "}
+                1,005+ Google Customer Reviews{" "}
                 <span className="hidden md:inline">|</span>{" "}
                 <br className="md:hidden" />
-                Trusted by 5,000+ customers
+                Trusted by 300+ customers
               </span>
             </div>
             <div className="flex flex-wrap gap-4 lg:justify-center mt-6">
@@ -82,8 +86,8 @@ const HeroSection = () => {
                   <span className="tracking-tight">Call Us</span>
                 </div>
               </a>
-              <a
-                href="#"
+              <button
+                onClick={openModal}
                 className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-black"
               >
                 <div className="group md:text-lg text-base text-black font-bold bg-white h-full hover:text-white hover:bg-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
@@ -96,7 +100,7 @@ const HeroSection = () => {
                   />
                   <span className="tracking-tight">Chat with Us</span>
                 </div>
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -8,8 +8,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Email configuration
 const EMAIL_CONFIG = {
-  // Use test mode for development, production mode for live site
-  isTestMode: process.env.NODE_ENV === 'development',
+  // Use test mode only when explicitly set, not based on NODE_ENV
+  isTestMode: process.env.EMAIL_TEST_MODE === 'true',
   testRecipient: 'delivered@resend.dev', // Resend's official test address
   productionRecipient: process.env.CONTACT_EMAIL || 'digitalmarketingcanada5@gmail.com',
   sender: process.env.EMAIL_FROM || 'Agency Contact Form <onboarding@resend.dev>',
@@ -20,8 +20,6 @@ export interface ContactFormData {
   lastName: string;
   email: string;
   phone: string;
-  companyName: string;
-  companyWebsite: string;
   inquiryType: string;
   hearAboutUs: string;
   message: string;
@@ -52,8 +50,6 @@ export const sendContactEmail = async (formData: ContactFormData) => {
     lastName,
     email,
     phone,
-    companyName,
-    companyWebsite,
     inquiryType,
     hearAboutUs,
     message,
@@ -78,16 +74,6 @@ export const sendContactEmail = async (formData: ContactFormData) => {
   if (!validateString(phone, 50)) {
     return {
       error: "Invalid phone number",
-    };
-  }
-  if (!validateString(companyName, 200)) {
-    return {
-      error: "Invalid company name",
-    };
-  }
-  if (!validateString(companyWebsite, 500)) {
-    return {
-      error: "Invalid company website",
     };
   }
   if (!validateString(inquiryType, 100)) {
@@ -125,8 +111,6 @@ export const sendContactEmail = async (formData: ContactFormData) => {
         lastName,
         email,
         phone,
-        companyName,
-        companyWebsite,
         inquiryType,
         hearAboutUs,
         message,

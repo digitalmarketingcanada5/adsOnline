@@ -5,7 +5,10 @@ import React from "react";
 import Link from "next/link";
 import Icon from "./Icon";
 import Image from "next/image"; // Ensure you have the correct import for Image
+import { useChatBot } from "@/contexts/ChatBotContext";
+
 const Header = () => {
+  const { openModal } = useChatBot();
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
   const [closeTimeout, setCloseTimeout] = React.useState<NodeJS.Timeout | null>(
     null
@@ -157,7 +160,10 @@ const Header = () => {
 
         {/* Right: Buttons */}
         <div className="hidden lg:flex items-center space-x-3">
-          <button className="bg-gradient-to-b from-yellow-400 to-amber-500 text-black font-semibold py-3 px-5 rounded-lg text-sm">
+          <button 
+            onClick={openModal}
+            className="bg-gradient-to-b from-yellow-400 to-amber-500 text-black font-semibold py-3 px-5 rounded-lg text-sm hover:from-yellow-500 hover:to-amber-600 transition-all duration-300"
+          >
             $500 in Google Ads Credit
           </button>
           <button className="bg-red-600 text-white font-semibold py-3 px-5 rounded-lg text-sm flex items-center">
@@ -231,7 +237,10 @@ const Header = () => {
 
             {/* Mobile Action Buttons */}
             <div className="border-t-2 border-red-600 mt-2 pt-4 px-4 space-y-3">
-              <button className="w-full bg-gradient-to-b from-yellow-400 to-amber-500 text-black font-bold py-3 px-5 rounded-lg text-sm shadow-md hover:shadow-lg transition-shadow">
+              <button 
+                onClick={openModal}
+                className="w-full bg-gradient-to-b from-yellow-400 to-amber-500 text-black font-bold py-3 px-5 rounded-lg text-sm shadow-md hover:shadow-lg transition-shadow"
+              >
                 $500 in Google Ads Credit
               </button>
               <button className="w-full bg-red-600 text-white font-bold py-3 px-5 rounded-lg text-sm flex items-center justify-center shadow-md hover:bg-red-700 hover:shadow-lg transition-all">
