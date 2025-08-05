@@ -67,6 +67,7 @@ const Header = () => {
         { name: "Web Hosting & Maintenance", href: "/web-hosting-maintenance" },
       ],
     },
+    { name: "Our Works", href: "/our-works" },
     // { name: 'Case Studies', href: '#' },
     { name: "Contact Us", href: "/contact-us" },
   ];
