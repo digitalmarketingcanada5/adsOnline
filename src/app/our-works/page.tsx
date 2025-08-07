@@ -20,88 +20,88 @@ interface Category {
 
 export default function OurWorks() {
   const categories: Category[] = [
+        {
+      title: "Digital Marketing",
+      description: "Strategic digital campaigns that drive results and maximize your ROI across all platforms.",
+      projects: [
+        {
+          id: "marketing-1",
+          title: "PPC Advertising",
+          category: "Digital Marketing",
+          description: "Lead generation campaigns with 300% ROI increase across all platforms",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=PPC+Ads",
+          link: "/services/ppc-advertising"
+        },
+        {
+          id: "marketing-2",
+          title: "Social Media Marketing",
+          category: "Digital Marketing", 
+          description: "Strategic social media campaigns that build communities and drive engagement",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=Social+Media",
+          link: "/services/social-media-marketing"
+        },
+        {
+          id: "marketing-3",
+          title: "SEO Services",
+          category: "Digital Marketing",
+          description: "Complete SEO optimization resulting in top search rankings",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=SEO",
+          link: "/services/seo"
+        }
+      ]
+    },
+        {
+      title: "E-commerce",
+      description: "Complete e-commerce solutions from strategy to implementation and optimization.",
+      projects: [
+        {
+          id: "ecommerce-1",
+          title: "E-commerce Development",
+          category: "E-commerce",
+          description: "Custom online stores built for maximum conversions and growth",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=E-commerce+Dev",
+          link: "/services/ecommerce-development"
+        },
+        {
+          id: "ecommerce-2",
+          title: "Conversion Optimization",
+          category: "E-commerce",
+          description: "CRO strategies that turn more visitors into paying customers",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=CRO",
+          link: "/services/conversion-optimization"
+        }
+      ]
+    },
     {
       title: "Content",
       description: "We make media that reflects your values, clarifies your message, and captures your customers.",
       projects: [
         {
           id: "content-1",
-          title: "Brand Video Campaign",
+          title: "Content Marketing",
           category: "Content",
-          description: "Professional video content for brand awareness",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Brand+Video",
-          link: "#"
+          description: "Strategic content creation that engages audiences and drives conversions",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=Content+Marketing",
+          link: "/services/content-marketing"
         },
         {
           id: "content-2", 
-          title: "Product Photography",
+          title: "Video Production",
           category: "Content",
-          description: "High-quality product photography for e-commerce",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Photography",
-          link: "#"
+          description: "Professional video content for brand storytelling and marketing",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=Video+Production",
+          link: "/services/content-marketing"
         },
         {
           id: "content-3",
-          title: "Social Media Content",
+          title: "Brand Content",
           category: "Content", 
-          description: "Engaging social media content creation",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Social+Media",
-          link: "#"
+          description: "Compelling brand content across all digital platforms",
+          image: "https://placehold.co/400x400/DC2626/FFF?text=Brand+Content",
+          link: "/services/content-marketing"
         }
       ]
     },
-    {
-      title: "Digital Marketing",
-      description: "Strategic digital campaigns that drive results and maximize your ROI across all platforms.",
-      projects: [
-        {
-          id: "marketing-1",
-          title: "Google Ads Campaign",
-          category: "Digital Marketing",
-          description: "Lead generation campaign with 300% ROI increase",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Google+Ads",
-          link: "#"
-        },
-        {
-          id: "marketing-2",
-          title: "Facebook Marketing",
-          category: "Digital Marketing", 
-          description: "Social media advertising with targeted audience reach",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Facebook+Ads",
-          link: "#"
-        },
-        {
-          id: "marketing-3",
-          title: "SEO Optimization",
-          category: "Digital Marketing",
-          description: "Complete SEO overhaul resulting in top rankings",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=SEO",
-          link: "#"
-        }
-      ]
-    },
-    {
-      title: "E-commerce",
-      description: "Complete e-commerce solutions from strategy to implementation and optimization.",
-      projects: [
-        {
-          id: "ecommerce-1",
-          title: "Shopify Store Design",
-          category: "E-commerce",
-          description: "Custom Shopify store with enhanced user experience",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=Shopify",
-          link: "#"
-        },
-        {
-          id: "ecommerce-2",
-          title: "WooCommerce Solution",
-          category: "E-commerce",
-          description: "WordPress e-commerce solution with payment integration",
-          image: "https://placehold.co/400x400/DC2626/FFF?text=WooCommerce",
-          link: "#"
-        }
-      ]
-    }
   ];
 
   const featuredEngagements = [
@@ -431,7 +431,11 @@ export default function OurWorks() {
               </div>
               <div className="md:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.projects.map((project) => (
-                  <div key={project.id} className="group cursor-pointer">
+                  <a 
+                    key={project.id} 
+                    href={project.link} 
+                    className="group cursor-pointer block"
+                  >
                     <div className="relative overflow-hidden rounded-lg bg-gray-900 hover:bg-gray-800 transition-all duration-300">
                       <img 
                         src={project.image} 
@@ -440,11 +444,12 @@ export default function OurWorks() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <h3 className="text-lg font-bold text-white mb-2">{project.title}</h3>
-                        <p className="text-sm text-gray-300">{project.description}</p>
+                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-gray-150 transition-colors duration-300">{project.title}</h3>
+                        <p className="text-sm text-gray-300 mb-3">{project.description}</p>
+                        <span className="text-xs text-red-500 font-medium">Learn More →</span>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
