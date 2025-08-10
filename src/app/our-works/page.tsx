@@ -617,12 +617,12 @@ export default function OurWorks() {
           </div>
         </section> */}
 
-        {/* Testimonials Section */}
+        {/* Founder's Message Section */}
         <section className="py-16">
-          <h2 className="text-3xl font-bold mb-8 text-left">Here's what our clients think</h2>
+          <h2 className="text-3xl font-bold mb-8 text-left">A Message from Our Founder</h2>
           <div className="bg-gray-900 p-8 rounded-lg border border-gray-800">
             <p className="text-lg italic mb-6">
-              "Thanks to AdsOnline, I now have a successful subscription program with monthly recurring revenue, freeing up my time to focus on making my product the best it can be. I would highly recommend working with AdsOnline."
+              "At AdsOnline, we've built a proven system that helps businesses create successful subscription programs with monthly recurring revenue. Our approach frees up our clients' time to focus on what matters most - making their products the best they can be. We're passionate about delivering results that exceed expectations."
             </p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
