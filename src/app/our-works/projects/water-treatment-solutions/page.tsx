@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 // Icon Components for the four-column section
 const BestInClassIcon = () => (
@@ -49,48 +49,132 @@ const CertifiedIcon = () => (
 
 // Main App component
 export default function App() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoStatus, setVideoStatus] = React.useState('Loading...');
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) {
+      setVideoStatus('Video element not found');
+      return;
+    }
+
+    console.log('Video element found:', video);
+    console.log('Video currentSrc:', video.currentSrc);
+    console.log('Video readyState:', video.readyState);
+
+    const handleLoadStart = () => {
+      console.log('Video load started');
+      setVideoStatus('Loading started...');
+    };
+
+    const handleLoadedData = () => {
+      console.log('Video data loaded');
+      setVideoStatus('Data loaded');
+    };
+
+    const handleLoadedMetadata = () => {
+      console.log('Video metadata loaded');
+      console.log('Video duration:', video?.duration);
+      console.log('Video videoWidth:', video?.videoWidth);
+      console.log('Video videoHeight:', video?.videoHeight);
+      setVideoStatus('Metadata loaded');
+    };
+
+    const handleCanPlay = () => {
+      console.log('Video can play');
+      console.log('Video buffered ranges:', video?.buffered.length);
+      setVideoStatus('Can play - attempting autoplay');
+      // Try to autoplay when video can play
+      if (video.paused) {
+        video.play().then(() => {
+          console.log('Autoplay successful');
+          setVideoStatus('Playing');
+        }).catch((error) => {
+          console.error('Autoplay failed:', error);
+          setVideoStatus(`Autoplay failed: ${error.message}`);
+        });
+      }
+    };
+
+    const handleError = (e: Event) => {
+      console.error('Video error:', e);
+      console.error('Video error details:', video.error);
+      const errorMessages = {
+        1: 'MEDIA_ERR_ABORTED: Aborted by user',
+        2: 'MEDIA_ERR_NETWORK: Network error',
+        3: 'MEDIA_ERR_DECODE: Decode error',
+        4: 'MEDIA_ERR_SRC_NOT_SUPPORTED: Source not supported'
+      };
+      const errorCode = video.error?.code as keyof typeof errorMessages;
+      const errorMsg = errorCode ? errorMessages[errorCode] : 'Unknown error';
+      setVideoStatus(`Error: ${errorMsg}`);
+    };
+
+    video.addEventListener('loadstart', handleLoadStart);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('error', handleError);
+
+    // Check initial state
+    if (video.readyState >= 3) {
+      console.log('Video already ready, attempting play');
+      video.play().catch((error) => {
+        console.error('Initial play failed:', error);
+        setVideoStatus(`Initial play failed: ${error.message}`);
+      });
+    }
+
+    return () => {
+      video.removeEventListener('loadstart', handleLoadStart);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('error', handleError);
+    };
+  }, []);
   return (
     <div className="bg-white text-black font-sans">
       <main>
         {/* --- Hero Video Section --- */}
         <section className="relative h-[60vh] md:h-[80vh] text-white">
-          {/* Cloudinary Optimized Video */}
-          <video 
-            className="absolute w-full h-full top-0 left-0 object-cover" 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            preload="metadata"
-            poster="https://res.cloudinary.com/dgq8orvtt/image/upload/w_1920,h_1080,c_fill,f_auto,q_auto/loopedheadervideo50sec_ou70xy.jpg"
-          >
-            {/* Primary source - Cloudinary optimized */}
-            <source 
-              src="https://res.cloudinary.com/dgq8orvtt/video/upload/q_auto,f_auto,w_1920,h_1080,c_fill/loopedheadervideo50sec_ou70xy.mp4" 
-              type="video/mp4" 
-            />
-            {/* Fallback source */}
-            <source 
-              src="https://www.kinetico.com/media/lqefzfm0/loopedheadervideo50sec.mp4" 
-              type="video/mp4" 
-            />
-            {/* Browser doesn't support video */}
-            Your browser does not support the video tag.
-          </video>
+          {/* Test Background to see if video covers it */}
+          <div className="absolute inset-0 bg-yellow-400 z-[1] flex items-center justify-center text-black text-xl font-bold">
+            🟡 TEST BACKGROUND - Video should cover this
+          </div>
           
-          {/* Fallback background in case video fails */}
-          <div 
-            className="absolute w-full h-full top-0 left-0 bg-cover bg-center"
-            style={{
-              backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              zIndex: -1
+          {/* Ultra-Simplified Video Element with Multiple Cloudinary Optimizations */}
+          <video 
+            ref={videoRef}
+            controls
+            muted 
+            preload="auto"
+            style={{ 
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              border: '3px solid red',
+              zIndex: 10
             }}
-          ></div>
-          <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-30 p-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-center" style={{ color: '#5bb1dc', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)' }}>
+          >
+            {/* Multiple Cloudinary optimizations - browser will try each in order */}
+            <source src="https://res.cloudinary.com/dgq8orvtt/video/upload/f_auto,q_auto,c_scale,w_1920/loopedheadervideo50sec_ou70xy.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dgq8orvtt/video/upload/f_mp4,q_70,br_3000k/loopedheadervideo50sec_ou70xy.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dgq8orvtt/video/upload/f_webm,q_auto/loopedheadervideo50sec_ou70xy.webm" type="video/webm" />
+            <source src="https://res.cloudinary.com/dgq8orvtt/video/upload/q_auto:low,f_auto/loopedheadervideo50sec_ou70xy.mp4" type="video/mp4" />
+            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            Your browser does not support video.
+          </video>
+
+          <div style={{ position: 'relative', zIndex: 20, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '16px' }}>
+            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: '#5bb1dc', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)' }}>
               Start Improving Your Water Today
             </h1>
-            <p className="mt-4 max-w-2xl text-center text-lg md:text-xl" style={{ textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
+            <p style={{ marginTop: '16px', maxWidth: '512px', textAlign: 'center', fontSize: '1.25rem', textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
               For over 50 years, Kinetico Water Systems have brought quality whole-home water treatment to homes across America.
             </p>
           </div>
