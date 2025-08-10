@@ -138,6 +138,149 @@ export default function OurWorks() {
           </div>
         </section>
 
+        {/* Projects Section */}
+        <section className="py-16">
+          <h2 className="text-3xl font-bold mb-8 text-left">Our Latest Projects</h2>
+          <p className="text-xl text-gray-400 mb-12 max-w-3xl">
+            Discover our featured projects showcasing innovation, creativity, and exceptional results across various industries.
+          </p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+            {/* Project Card 1 - Water Treatment Solutions */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1" 
+                 onClick={() => window.location.href = '/our-works/projects/water-treatment-solutions'}>
+              <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
+                <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                  <div className="mb-4">
+                    <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      Water Technology
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Kinetico Water Treatment Solutions
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Complete water treatment platform featuring advanced filtration systems, smart technology integration, and exceptional user experience design.
+                  </p>
+                  <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
+                    <span>Explore Project</span>
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                  <img 
+                    src="https://www.kinetico.com/media/dzydqdcc/watertest2.png" 
+                    alt="Water Treatment Solutions Project"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project Card 2 - E-commerce Platform */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+              <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
+                <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                  <div className="mb-4">
+                    <span className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      E-commerce
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Premium E-commerce Platform
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Modern e-commerce solution with advanced analytics, seamless checkout, and AI-powered recommendations driving 200% conversion increase.
+                  </p>
+                  <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
+                    <span>Explore Project</span>
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                  <img 
+                    src="https://placehold.co/400x400/059669/FFF?text=E-commerce+Platform" 
+                    alt="E-commerce Platform Project"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project Card 3 - AI Marketing Dashboard */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+              <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
+                <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                  <div className="mb-4">
+                    <span className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      AI & Analytics
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    AI-Powered Marketing Dashboard
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Intelligent marketing dashboard with predictive analytics, automated reporting, and real-time campaign optimization capabilities.
+                  </p>
+                  <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
+                    <span>Explore Project</span>
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                  <img 
+                    src="https://placehold.co/400x400/7C3AED/FFF?text=AI+Dashboard" 
+                    alt="AI Marketing Dashboard Project"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Project Card 4 - Fintech Mobile App */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+              <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
+                <div className="md:col-span-2 p-8 flex flex-col justify-center">
+                  <div className="mb-4">
+                    <span className="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      Fintech
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
+                    Next-Gen Financial Mobile App
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    Revolutionary fintech app featuring biometric security, instant transfers, and personalized financial insights with award-winning UX design.
+                  </p>
+                  <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
+                    <span>Explore Project</span>
+                    <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                  <img 
+                    src="https://placehold.co/400x400/EA580C/FFF?text=Fintech+App" 
+                    alt="Fintech Mobile App Project"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Case Studies Section */}
         <section className="py-16">
           <h2 className="text-3xl font-bold mb-8 text-left">Case Studies</h2>
