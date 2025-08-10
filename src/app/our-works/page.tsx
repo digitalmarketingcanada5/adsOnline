@@ -214,20 +214,21 @@ export default function OurWorks() {
               </div>
             </div>
 
-            {/* Project Card 3 - AI Marketing Dashboard */}
-            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+            {/* Project Card 3 - Ministry of Railways SEO */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
+                 onClick={() => window.location.href = '/our-works/projects/ministry-of-railways-seo'}>
               <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
                 <div className="md:col-span-2 p-8 flex flex-col justify-center">
                   <div className="mb-4">
-                    <span className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
-                      AI & Analytics
+                    <span className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      SEO & Digital Marketing
                     </span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
-                    AI-Powered Marketing Dashboard
+                    Ministry of Railways - SEO Transformation
                   </h3>
                   <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                    Intelligent marketing dashboard with predictive analytics, automated reporting, and real-time campaign optimization capabilities.
+                    Comprehensive digital transformation for India's national railway system, achieving 50% website traffic growth and 40% revenue increase through strategic SEO.
                   </p>
                   <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
                     <span>Explore Project</span>
@@ -239,28 +240,29 @@ export default function OurWorks() {
                 <div className="relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
                   <img 
-                    src="https://placehold.co/400x400/7C3AED/FFF?text=AI+Dashboard" 
-                    alt="AI Marketing Dashboard Project"
+                    src="/indian-trains.jpg" 
+                    alt="Ministry of Railways SEO Project"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Project Card 4 - Fintech Mobile App */}
-            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+            {/* Project Card 4 - Teaching at Canadian Colleges */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
+                 onClick={() => window.location.href = '/our-works/projects/college-teaching-project'}>
               <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
                 <div className="md:col-span-2 p-8 flex flex-col justify-center">
                   <div className="mb-4">
-                    <span className="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
-                      Fintech
+                    <span className="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      Education
                     </span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
-                    Next-Gen Financial Mobile App
+                    Teaching at Canadian Colleges
                   </h3>
                   <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                    Revolutionary fintech app featuring biometric security, instant transfers, and personalized financial insights with award-winning UX design.
+                    Educational excellence program featuring innovative curriculum design, student success initiatives, and industry-aligned learning outcomes across Canadian institutions.
                   </p>
                   <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
                     <span>Explore Project</span>
@@ -272,8 +274,8 @@ export default function OurWorks() {
                 <div className="relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
                   <img 
-                    src="https://placehold.co/400x400/EA580C/FFF?text=Fintech+App" 
-                    alt="Fintech Mobile App Project"
+                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=400&fit=crop&crop=center" 
+                    alt="Teaching at Canadian Colleges Project"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
