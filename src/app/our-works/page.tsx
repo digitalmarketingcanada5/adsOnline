@@ -180,20 +180,21 @@ export default function OurWorks() {
               </div>
             </div>
 
-            {/* Project Card 2 - E-commerce Platform */}
-            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1">
+            {/* Project Card 2 - Adobe CRM Automation */}
+            <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
+                 onClick={() => window.location.href = '/our-works/projects/adobe-consulting-crm-automation'}>
               <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
                 <div className="md:col-span-2 p-8 flex flex-col justify-center">
                   <div className="mb-4">
-                    <span className="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
-                      E-commerce
+                    <span className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-3">
+                      CRM Automation
                     </span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">
-                    Premium E-commerce Platform
+                    Adobe Consulting - CRM Automation
                   </h3>
                   <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                    Modern e-commerce solution with advanced analytics, seamless checkout, and AI-powered recommendations driving 200% conversion increase.
+                    Intelligent CRM automation platform with Adobe Experience Cloud, delivering 40% increase in lead conversion and 60% reduction in manual processes.
                   </p>
                   <div className="flex items-center text-red-500 font-semibold group-hover:text-red-400 transition-colors">
                     <span>Explore Project</span>
@@ -205,8 +206,8 @@ export default function OurWorks() {
                 <div className="relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
                   <img 
-                    src="https://placehold.co/400x400/059669/FFF?text=E-commerce+Platform" 
-                    alt="E-commerce Platform Project"
+                    src="https://placehold.co/600x400/DC2626/FFF?text=Adobe+CRM" 
+                    alt="Adobe CRM Automation Project"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
