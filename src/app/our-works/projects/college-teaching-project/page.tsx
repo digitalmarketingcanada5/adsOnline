@@ -160,7 +160,7 @@ export default function CollegeTeachingProject() {
                 </p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="Teaching in Action" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop" alt="Teaching in Action" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
             </div>
 
@@ -186,7 +186,7 @@ export default function CollegeTeachingProject() {
                 </p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&h=400&fit=crop" alt="Student Assessment" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop" alt="Student Assessment and Grading" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
             </div>
           </div>
@@ -197,9 +197,20 @@ export default function CollegeTeachingProject() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-blue-800 mb-6">The Results</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The educational initiatives delivered transformative outcomes for students and institutions, strengthening the colleges' reputations as leaders in career-focused education.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                The educational initiatives delivered transformative outcomes for students and institutions:
               </p>
+              <div className="text-left max-w-4xl mx-auto bg-blue-50 p-6 rounded-lg">
+                <ul className="text-gray-700 text-lg space-y-2">
+                  <li>• <strong>1,700+ modules taught</strong>, equipping students with in-demand skills</li>
+                  <li>• <strong>18,080 hours dedicated to instruction</strong>, fostering deep learning</li>
+                  <li>• <strong>2,250+ students graded</strong>, ensuring high standards of achievement</li>
+                  <li>• <strong>40 curriculums designed</strong>, aligned with industry trends and diverse learner needs</li>
+                </ul>
+                <p className="text-gray-700 text-lg mt-4">
+                  These efforts empowered students to launch successful careers in digital marketing, e-commerce, and branding, strengthening the colleges' reputations as leaders in career-focused education.
+                </p>
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
@@ -274,6 +285,9 @@ export default function CollegeTeachingProject() {
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md text-center border border-gray-200">
                 <h4 className="font-semibold text-gray-800">Student Assessments</h4>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md text-center border border-gray-200">
+                <h4 className="font-semibold text-gray-800">Education</h4>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md text-center border border-gray-200">
                 <h4 className="font-semibold text-gray-800">Digital Marketing Instruction</h4>
@@ -355,8 +369,11 @@ export default function CollegeTeachingProject() {
               </a>
             </div>
             <div className="mt-12 pt-8 border-t border-gray-700">
+              <p className="text-gray-400 text-sm mb-4">
+                Let's level up the future of your brand.
+              </p>
               <p className="text-gray-400 text-sm">
-                © 2025 AdsOnline Educational Excellence. All rights reserved.
+                © 2025 Your Company Name. All rights reserved.
               </p>
               <div className="flex justify-center gap-6 mt-4">
                 <a href="/privacy-policy" className="text-gray-400 hover:text-white text-sm">Privacy Policy</a>

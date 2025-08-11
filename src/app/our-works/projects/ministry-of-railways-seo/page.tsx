@@ -124,17 +124,14 @@ export default function MinistryOfRailwaysSEO() {
               <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">The Challenge</h2>
               <h3 className="text-2xl font-semibold text-gray-700 mb-8">Modernizing a Legacy System</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="tems-center">
               <div>
-                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                <p className="text-gray-700 text-lg leading-relaxed mb-6 flex justify-center">
                   The Ministry of Railways, a cornerstone of India's transportation infrastructure, faced the challenge of modernizing its digital presence to meet the demands of a tech-savvy population. With millions of passengers relying on its services daily, the organization needed to enhance its online ticketing platform, improve user engagement, and streamline its marketing efforts to drive efficiency and accessibility.
                 </p>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   The goal was to create a seamless digital experience while maintaining the trust and reliability associated with the Ministry's legacy.
                 </p>
-              </div>
-              <div>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/New_Delhi_Railway_Station.jpg/800px-New_Delhi_Railway_Station.jpg" alt="Railway Station" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
             </div>
           </div>
@@ -149,7 +146,7 @@ export default function MinistryOfRailwaysSEO() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=600&h=400&fit=crop" alt="User Research" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Business Partnership Handshake" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
               <div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
@@ -185,7 +182,7 @@ export default function MinistryOfRailwaysSEO() {
                 </p>
               </div>
               <div>
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="Online Ticketing" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=600&h=400&fit=crop" alt="Indian Railway Train Station" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
             </div>
 
@@ -248,8 +245,8 @@ export default function MinistryOfRailwaysSEO() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">The Results</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                The Ministry of Railways saw transformative outcomes from our digital and marketing strategies, positioning them as a leader in modern transportation services.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                The Ministry of Railways saw transformative outcomes from our digital and marketing strategies:
               </p>
             </div>
             
@@ -337,6 +334,9 @@ export default function MinistryOfRailwaysSEO() {
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md text-center">
                 <h4 className="font-semibold text-gray-800">Analytics and Reporting</h4>
+              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md text-center">
+                <h4 className="font-semibold text-gray-800">E-commerce</h4>
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md text-center">
                 <h4 className="font-semibold text-gray-800">User Interface Design</h4>
