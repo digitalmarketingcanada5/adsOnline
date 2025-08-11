@@ -215,7 +215,7 @@ export default function OurWorks() {
             </div>
 
             {/* Project Card 3 - Ministry of Railways SEO */}
-            {/* <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
+             <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
                  onClick={() => window.location.href = '/our-works/projects/ministry-of-railways-seo'}>
               <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
                 <div className="md:col-span-2 p-8 flex flex-col justify-center">
@@ -246,10 +246,10 @@ export default function OurWorks() {
                   />
                 </div>
               </div>
-            </div> */}
+            </div> 
 
             {/* Project Card 4 - Teaching at Canadian Colleges */}
-            {/* <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
+             <div className="group cursor-pointer bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-500 transform hover:-translate-y-1"
                  onClick={() => window.location.href = '/our-works/projects/college-teaching-project'}>
               <div className="grid grid-cols-1 md:grid-cols-3 h-64 md:h-80">
                 <div className="md:col-span-2 p-8 flex flex-col justify-center">
@@ -280,7 +280,7 @@ export default function OurWorks() {
                   />
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </section>
 
