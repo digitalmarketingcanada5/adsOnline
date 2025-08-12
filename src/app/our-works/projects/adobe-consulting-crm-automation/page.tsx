@@ -121,27 +121,27 @@ export default function AdobeConsultingCRMAutomation() {
     <div className="bg-white text-black font-sans">
       <main>
         {/* --- Hero Video Section --- */}
-        <section className="relative h-[60vh] md:h-[80vh] text-white">
+        <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] text-white overflow-hidden">
           {/* Background overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-red-600 via-purple-600 to-blue-600 z-[1]"></div>
           
           {/* Hero Content */}
-          <div style={{ position: 'relative', zIndex: 20, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '16px' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: '#ffffff', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)', marginBottom: '16px' }}>
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black bg-opacity-50 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white drop-shadow-lg mb-4 sm:mb-6">
               Adobe Consulting - CRM Automation
             </h1>
-            <p style={{ marginTop: '16px', maxWidth: '512px', textAlign: 'center', fontSize: '1.25rem', textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-4xl text-center text-white drop-shadow-md leading-relaxed">
               Transforming marketing automation for global brands with Adobe Experience Cloud
             </p>
           </div>
         </section>
 
         {/* --- Project Overview Section --- */}
-        <section className="py-16 px-4 md:px-8 lg:px-16">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-6">Project Overview</h2>
-              <div className="space-y-4 text-gray-700">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 sm:mb-6">Project Overview</h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base">
                 <p><strong>Company:</strong> Perkuto (Trusted Adobe Partner)</p>
                 <p><strong>Industry:</strong> Technology, Marketing Automation</p>
                 <p><strong>Market:</strong> B2B, Enterprise</p>
@@ -149,10 +149,10 @@ export default function AdobeConsultingCRMAutomation() {
                 <p><strong>Location:</strong> Toronto, ON, Canada</p>
                 <p><strong>Duration:</strong> October 2021 – October 2022</p>
                 <p><strong>Scope of Work:</strong> Marketing Automation, Campaign Management, Data Analytics, Team Leadership, Adobe Experience Cloud, Adobe Marketo, Adobe Measure</p>
-                <p>Global leader in digital experience and marketing automation solutions, serving leading brands across diverse industries with headquarters in San Jose, CA, and operations worldwide.</p>
+                <p className="leading-relaxed">Global leader in digital experience and marketing automation solutions, serving leading brands across diverse industries with headquarters in San Jose, CA, and operations worldwide.</p>
               </div>
             </div>
-            <div>
+            <div className="mt-8 lg:mt-0">
               <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Adobe Experience Cloud" className="w-full h-auto rounded-lg shadow-lg" />
             </div>
           </div>
@@ -255,52 +255,52 @@ export default function AdobeConsultingCRMAutomation() {
         </section>
 
         {/* --- Results Section --- */}
-        <section className="py-20 px-4 md:px-8 lg:px-16">
+        <section className="py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-16">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-red-600 mb-6">The Results</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">The Adobe Consulting project delivered transformative outcomes for clients:</p>
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 mb-4 sm:mb-6">The Results</h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">The Adobe Consulting project delivered transformative outcomes for clients:</p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="75%" />
                 </div>
-                <p className="text-red-100">Increase in Campaign Efficiency</p>
+                <p className="text-red-100 text-sm sm:text-base">Increase in Campaign Efficiency</p>
               </div>
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="35%" />
                 </div>
-                <p className="text-red-100">Rise in Conversion Rates</p>
+                <p className="text-red-100 text-sm sm:text-base">Rise in Conversion Rates</p>
               </div>
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="40%" />
                 </div>
-                <p className="text-red-100">Decrease in Marketing Expenses</p>
+                <p className="text-red-100 text-sm sm:text-base">Decrease in Marketing Expenses</p>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="28%" />
                 </div>
-                <p className="text-red-100">Boost in ROI</p>
+                <p className="text-red-100 text-sm sm:text-base">Boost in ROI</p>
               </div>
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="20%" />
                 </div>
-                <p className="text-red-100">Increase in Marketing Campaign Efficiency</p>
+                <p className="text-red-100 text-sm sm:text-base">Increase in Marketing Campaign Efficiency</p>
               </div>
-              <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">
+              <div className="text-center p-6 sm:p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
+                <div className="text-4xl sm:text-5xl font-bold mb-2">
                   <AnimatedCounter value="15%" />
                 </div>
-                <p className="text-red-100">Increase in Customer Engagement</p>
+                <p className="text-red-100 text-sm sm:text-base">Increase in Customer Engagement</p>
               </div>
             </div>
             

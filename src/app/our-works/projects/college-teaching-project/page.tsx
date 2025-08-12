@@ -51,20 +51,20 @@ export default function CollegeTeachingProject() {
     <div className="bg-white text-black font-sans">
       <main>
         {/* --- Hero Section --- */}
-        <section className="relative h-[60vh] md:h-[80vh] text-white">
+        <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] text-white overflow-hidden">
           {/* Background with education theme */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 z-[1]"></div>
           
           {/* Hero Content */}
-          <div style={{ position: 'relative', zIndex: 20, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0, 0, 0, 0.4)', padding: '16px' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: '#ffffff', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)', marginBottom: '16px' }}>
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black bg-opacity-40 px-4 sm:px-6 lg:px-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white drop-shadow-lg mb-4 sm:mb-6">
               TEACHING - College Education Excellence
             </h1>
-            <p style={{ marginTop: '16px', maxWidth: '600px', textAlign: 'center', fontSize: '1.25rem', textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-4xl text-center text-white drop-shadow-md leading-relaxed mb-6 sm:mb-8">
               Empowering the next generation of marketers through innovative education across CDI College, ILAC College, Metro College, Citi College, and Evergreen College.
             </p>
-            <div className="mt-8">
-              <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition-colors shadow-lg">
+            <div className="mt-4 sm:mt-6 md:mt-8">
+              <button className="bg-blue-600 text-white font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full text-sm sm:text-base md:text-lg hover:bg-blue-700 transition-colors shadow-lg">
                 Discover Our Educational Impact
               </button>
             </div>
@@ -72,11 +72,11 @@ export default function CollegeTeachingProject() {
         </section>
 
         {/* --- Project Overview Section --- */}
-        <section className="py-16 px-4 md:px-8 lg:px-16">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6">Educational Excellence Project</h2>
-              <div className="space-y-4 text-gray-700">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-4 sm:mb-6">Educational Excellence Project</h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base">
                 <p><strong>Institutions:</strong> CDI College, ILAC College, Metro College, Citi College, and Evergreen College</p>
                 <p><strong>Industry:</strong> Education, Higher Learning</p>
                 <p><strong>Market:</strong> B2C, Higher Education</p>
@@ -194,50 +194,50 @@ export default function CollegeTeachingProject() {
         </section>
 
         {/* --- Results Section --- */}
-        <section className="py-20 px-4 md:px-8 lg:px-16">
+        <section className="py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-16">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-blue-800 mb-6">The Results</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-4 sm:mb-6">The Results</h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
                 The educational initiatives delivered transformative outcomes for students and institutions:
               </p>
-              <div className="text-left max-w-4xl mx-auto bg-blue-50 p-6 rounded-lg">
-                <ul className="text-gray-700 text-lg space-y-2">
+              <div className="text-left max-w-4xl mx-auto bg-blue-50 p-4 sm:p-6 rounded-lg">
+                <ul className="text-gray-700 text-sm sm:text-base lg:text-lg space-y-2">
                   <li>• <strong>1,700+ modules taught</strong>, equipping students with in-demand skills</li>
                   <li>• <strong>18,080 hours dedicated to instruction</strong>, fostering deep learning</li>
                   <li>• <strong>2,250+ students graded</strong>, ensuring high standards of achievement</li>
                   <li>• <strong>40 curriculums designed</strong>, aligned with industry trends and diverse learner needs</li>
                 </ul>
-                <p className="text-gray-700 text-lg mt-4">
+                <p className="text-gray-700 text-sm sm:text-base lg:text-lg mt-4">
                   These efforts empowered students to launch successful careers in digital marketing, e-commerce, and branding, strengthening the colleges' reputations as leaders in career-focused education.
                 </p>
               </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">
                   <AnimatedCounter value="1700" suffix="+" />
                 </h3>
-                <p className="text-lg text-gray-700">Modules Taught</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Modules Taught</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">
                   <AnimatedCounter value="18080" />
                 </h3>
-                <p className="text-lg text-gray-700">Hours of Instruction</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Hours of Instruction</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">
                   <AnimatedCounter value="2250" suffix="+" />
                 </h3>
-                <p className="text-lg text-gray-700">Students Graded</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Students Graded</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">
                   <AnimatedCounter value="40" />
                 </h3>
-                <p className="text-lg text-gray-700">Curriculums Designed</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Curriculums Designed</p>
               </div>
             </div>
           </div>

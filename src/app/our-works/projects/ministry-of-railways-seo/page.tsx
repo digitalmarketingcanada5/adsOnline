@@ -75,7 +75,7 @@ export default function MinistryOfRailwaysSEO() {
     <div className="bg-white text-black font-sans">
       <main>
         {/* --- Hero Image Section --- */}
-        <section className="relative h-[60vh] md:h-[80vh] text-white">
+        <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] text-white overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-[1]">
             <img 
@@ -86,27 +86,27 @@ export default function MinistryOfRailwaysSEO() {
             <div className="absolute inset-0 bg-black opacity-50"></div>
           </div>
           
-          <div style={{ position: 'relative', zIndex: 20, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '16px' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: '#ffffff', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)' }}>
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white drop-shadow-lg mb-4 sm:mb-6">
               Driving Website Traffic with SEO
             </h1>
-            <p style={{ marginTop: '16px', maxWidth: '512px', textAlign: 'center', fontSize: '1.25rem', textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-4xl text-center text-white drop-shadow-md leading-relaxed">
               Digital transformation for Ministry of Railways, Government of India - Modernizing India's transportation infrastructure through strategic SEO and digital marketing.
             </p>
           </div>
         </section>
 
         {/* --- Project Overview Section --- */}
-        <section className="py-16 px-4 md:px-8 lg:px-16">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-green-800 mb-6">Project Overview</h2>
-              <div className="space-y-4 text-gray-700">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-800 mb-4 sm:mb-6">Project Overview</h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-700 text-sm sm:text-base">
                 <p><strong>Client:</strong> Ministry of Railways, Government of India</p>
                 <p><strong>Industry:</strong> Transportation, Government</p>
                 <p><strong>Market:</strong> B2C, B2B, Government</p>
                 <p><strong>Scope of Work:</strong> User Research, Digital Marketing, SEO Optimization, Email Marketing, Content Strategy, Data Analytics</p>
-                <p>A comprehensive digital transformation project for India's national railway system, serving millions of passengers daily across an extensive rail network. Our mission was to modernize their digital presence and enhance customer experience through strategic SEO and digital marketing initiatives.</p>
+                <p className="leading-relaxed">A comprehensive digital transformation project for India's national railway system, serving millions of passengers daily across an extensive rail network. Our mission was to modernize their digital presence and enhance customer experience through strategic SEO and digital marketing initiatives.</p>
               </div>
             </div>
             <div>
@@ -242,63 +242,63 @@ export default function MinistryOfRailwaysSEO() {
         </section>
 
         {/* --- Results Section --- */}
-        <section className="py-20 px-4 md:px-8 lg:px-16">
+        <section className="py-12 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-16">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-green-800 mb-6">The Results</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4 sm:mb-6">The Results</h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
                 The Ministry of Railways saw transformative outcomes from our digital and marketing strategies:
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="20%" />
                 </h3>
-                <p className="text-lg text-gray-700">Increase in Online Ticketing Traffic</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Increase in Online Ticketing Traffic</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="40%" />
                 </h3>
-                <p className="text-lg text-gray-700">Boost in Overall Revenue</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Boost in Overall Revenue</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="50%" />
                 </h3>
-                <p className="text-lg text-gray-700">Growth in Website Traffic</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Growth in Website Traffic</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="25%" />
                 </h3>
-                <p className="text-lg text-gray-700">Improvement in Conversion Rates</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Improvement in Conversion Rates</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="30%" />
                 </h3>
-                <p className="text-lg text-gray-700">Increase in Lead Generation</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Increase in Lead Generation</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="20%" />
                 </h3>
-                <p className="text-lg text-gray-700">Rise in Traditional Marketing ROI</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Rise in Traditional Marketing ROI</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="15%" />
                 </h3>
-                <p className="text-lg text-gray-700">Increase in Customer Acquisition</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Increase in Customer Acquisition</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">
+              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg border border-gray-200">
+                <h3 className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
                   <AnimatedCounter value="10" suffix=" Million" />
                 </h3>
-                <p className="text-lg text-gray-700">Passengers Served Daily</p>
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700">Passengers Served Daily</p>
               </div>
             </div>
           </div>
