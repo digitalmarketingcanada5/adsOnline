@@ -125,7 +125,7 @@ export default function CollegeTeachingProject() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop" alt="Curriculum Development" className="w-full h-auto rounded-lg shadow-lg" />
+                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=400&fit=crop" alt="Students Standing with Laptops" className="w-full h-auto rounded-lg shadow-lg" />
               </div>
               <div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-6">
