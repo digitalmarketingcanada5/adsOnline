@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import AnimatedCounter from '../../../../components/AnimatedCounter';
 
 // Icon Components for the four-column section
 const MarketingAutomationIcon = () => (
@@ -263,30 +264,42 @@ export default function AdobeConsultingCRMAutomation() {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">75%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="75%" />
+                </div>
                 <p className="text-red-100">Increase in Campaign Efficiency</p>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">35%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="35%" />
+                </div>
                 <p className="text-red-100">Rise in Conversion Rates</p>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">40%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="40%" />
+                </div>
                 <p className="text-red-100">Decrease in Marketing Expenses</p>
               </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">28%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="28%" />
+                </div>
                 <p className="text-red-100">Boost in ROI</p>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">20%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="20%" />
+                </div>
                 <p className="text-red-100">Increase in Marketing Campaign Efficiency</p>
               </div>
               <div className="text-center p-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg shadow-lg">
-                <div className="text-5xl font-bold mb-2">15%</div>
+                <div className="text-5xl font-bold mb-2">
+                  <AnimatedCounter value="15%" />
+                </div>
                 <p className="text-red-100">Increase in Customer Engagement</p>
               </div>
             </div>

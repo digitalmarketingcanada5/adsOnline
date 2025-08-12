@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import AnimatedCounter from '../../../../components/AnimatedCounter';
 
 // Icon Components for the four-column section
 const CurriculumIcon = () => (
@@ -215,19 +216,27 @@ export default function CollegeTeachingProject() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">1,700+</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+                  <AnimatedCounter value="1700" suffix="+" />
+                </h3>
                 <p className="text-lg text-gray-700">Modules Taught</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">18,080</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+                  <AnimatedCounter value="18080" />
+                </h3>
                 <p className="text-lg text-gray-700">Hours of Instruction</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">2,250+</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+                  <AnimatedCounter value="2250" suffix="+" />
+                </h3>
                 <p className="text-lg text-gray-700">Students Graded</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-blue-600 mb-2">40</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mb-2">
+                  <AnimatedCounter value="40" />
+                </h3>
                 <p className="text-lg text-gray-700">Curriculums Designed</p>
               </div>
             </div>

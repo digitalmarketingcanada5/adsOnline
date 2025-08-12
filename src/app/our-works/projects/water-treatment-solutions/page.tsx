@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import AnimatedCounter from '../../../../components/AnimatedCounter';
 
 export default function WaterTreatmentSolutionsPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -334,19 +335,27 @@ export default function WaterTreatmentSolutionsPage() {
           <h2 className="text-3xl font-bold mb-12 text-center">Exceptional Results</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <div className="text-center p-6 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-lg">
-              <div className="text-4xl font-bold mb-2">285%</div>
+              <div className="text-4xl font-bold mb-2">
+                <AnimatedCounter value="285%" />
+              </div>
               <p className="text-blue-100">Lead Increase</p>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-green-500 to-green-600 text-white rounded-lg">
-              <div className="text-4xl font-bold mb-2">$2.3M</div>
+              <div className="text-4xl font-bold mb-2">
+                <AnimatedCounter value="$2.3M" />
+              </div>
               <p className="text-green-100">Revenue Generated</p>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-purple-500 to-purple-600 text-white rounded-lg">
-              <div className="text-4xl font-bold mb-2">65%</div>
+              <div className="text-4xl font-bold mb-2">
+                <AnimatedCounter value="65%" />
+              </div>
               <p className="text-purple-100">CPL Reduction</p>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-lg">
-              <div className="text-4xl font-bold mb-2">8.7x</div>
+              <div className="text-4xl font-bold mb-2">
+                <AnimatedCounter value="8.7x" />
+              </div>
               <p className="text-orange-100">Return on Ad Spend</p>
             </div>
           </div>
@@ -358,33 +367,49 @@ export default function WaterTreatmentSolutionsPage() {
                 <div className="flex justify-between items-center">
                   <span>Monthly Leads</span>
                   <div className="flex items-center gap-4">
-                    <span className="text-red-600 font-semibold">124</span>
+                    <span className="text-red-600 font-semibold">
+                      <AnimatedCounter value="124" />
+                    </span>
                     <span>→</span>
-                    <span className="text-green-600 font-semibold">477</span>
+                    <span className="text-green-600 font-semibold">
+                      <AnimatedCounter value="477" />
+                    </span>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
                   <span>Cost Per Lead</span>
                   <div className="flex items-center gap-4">
-                    <span className="text-red-600 font-semibold">$185</span>
+                    <span className="text-red-600 font-semibold">
+                      <AnimatedCounter value="$185" />
+                    </span>
                     <span>→</span>
-                    <span className="text-green-600 font-semibold">$64</span>
+                    <span className="text-green-600 font-semibold">
+                      <AnimatedCounter value="$64" />
+                    </span>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
                   <span>Conversion Rate</span>
                   <div className="flex items-center gap-4">
-                    <span className="text-red-600 font-semibold">2.3%</span>
+                    <span className="text-red-600 font-semibold">
+                      <AnimatedCounter value="2.3%" />
+                    </span>
                     <span>→</span>
-                    <span className="text-green-600 font-semibold">7.8%</span>
+                    <span className="text-green-600 font-semibold">
+                      <AnimatedCounter value="7.8%" />
+                    </span>
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
                   <span>ROAS</span>
                   <div className="flex items-center gap-4">
-                    <span className="text-red-600 font-semibold">2.1x</span>
+                    <span className="text-red-600 font-semibold">
+                      <AnimatedCounter value="2.1x" />
+                    </span>
                     <span>→</span>
-                    <span className="text-green-600 font-semibold">8.7x</span>
+                    <span className="text-green-600 font-semibold">
+                      <AnimatedCounter value="8.7x" />
+                    </span>
                   </div>
                 </div>
               </div>

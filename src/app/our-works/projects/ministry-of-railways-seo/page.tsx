@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import AnimatedCounter from '../../../../components/AnimatedCounter';
 
 // Icon Components for the four-column section
 const SEOOptimizationIcon = () => (
@@ -252,35 +253,51 @@ export default function MinistryOfRailwaysSEO() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">20%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="20%" />
+                </h3>
                 <p className="text-lg text-gray-700">Increase in Online Ticketing Traffic</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">40%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="40%" />
+                </h3>
                 <p className="text-lg text-gray-700">Boost in Overall Revenue</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">50%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="50%" />
+                </h3>
                 <p className="text-lg text-gray-700">Growth in Website Traffic</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">25%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="25%" />
+                </h3>
                 <p className="text-lg text-gray-700">Improvement in Conversion Rates</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">30%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="30%" />
+                </h3>
                 <p className="text-lg text-gray-700">Increase in Lead Generation</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">20%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="20%" />
+                </h3>
                 <p className="text-lg text-gray-700">Rise in Traditional Marketing ROI</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">15%</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="15%" />
+                </h3>
                 <p className="text-lg text-gray-700">Increase in Customer Acquisition</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                <h3 className="text-4xl font-bold text-green-600 mb-2">Millions</h3>
+                <h3 className="text-4xl font-bold text-green-600 mb-2">
+                  <AnimatedCounter value="10" suffix=" Million" />
+                </h3>
                 <p className="text-lg text-gray-700">Passengers Served Daily</p>
               </div>
             </div>
