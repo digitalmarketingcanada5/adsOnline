@@ -143,15 +143,21 @@ export default function WaterTreatmentSolutionsPage() {
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Project Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">285%</div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">
+                <AnimatedCounter value="285%" />
+              </div>
               <p className="text-sm sm:text-base text-gray-600">Increase in Lead Generation</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">$2.3M</div>
+              <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">
+                <AnimatedCounter value="$2.3M" />
+              </div>
               <p className="text-sm sm:text-base text-gray-600">Revenue Generated</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-2">65%</div>
+              <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-2">
+                <AnimatedCounter value="65%" />
+              </div>
               <p className="text-sm sm:text-base text-gray-600">Reduction in Cost Per Lead</p>
             </div>
           </div>
