@@ -95,7 +95,7 @@ export default function WaterTreatmentSolutionsPage() {
     <div className="bg-white text-black font-sans">
       <main>
         {/* --- Hero Video Section --- */}
-        <section className="relative h-[60vh] md:h-[80vh] text-white">
+        <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] text-white overflow-hidden">
           {/* Test Background to see if video covers it */}
           <div className="absolute inset-0 bg-yellow-400 z-[1] flex items-center justify-center text-black text-xl font-bold">
             🟡 TEST BACKGROUND - Video should cover this
@@ -114,8 +114,7 @@ export default function WaterTreatmentSolutionsPage() {
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              border: '3px solid red',
-              zIndex: 10
+              zIndex: 15
             }}
           >
             {/* Multiple Cloudinary optimizations - browser will try each in order */}
@@ -127,35 +126,36 @@ export default function WaterTreatmentSolutionsPage() {
             Your browser does not support video.
           </video>
 
-          <div style={{ position: 'relative', zIndex: 20, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '16px' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', color: '#5bb1dc', textShadow: '1px 1px 1px rgba(0, 0, 0, 0.7)' }}>
+          <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-transparent px-4 sm:px-6 lg:px-8"
+               style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-[#5bb1dc] drop-shadow-lg mb-4 sm:mb-6">
               Kinetico Corporate Partnership with Costco
             </h1>
-            <p style={{ marginTop: '16px', maxWidth: '512px', textAlign: 'center', fontSize: '1.25rem', textShadow: '0px 0px 2px rgba(0, 0, 0, 0.8)' }}>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl lg:max-w-4xl text-center text-white drop-shadow-md leading-relaxed">
               Driving digital transformation for Kinetico water systems through strategic marketing and exclusive partnership with Costco Wholesale Canada.
             </p>
           </div>
         </section>
 
       {/* Project Overview */}
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Project Overview</h2>
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Project Overview</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">285%</div>
-              <p className="text-gray-600">Increase in Lead Generation</p>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">285%</div>
+              <p className="text-sm sm:text-base text-gray-600">Increase in Lead Generation</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">$2.3M</div>
-              <p className="text-gray-600">Revenue Generated</p>
+              <div className="text-3xl sm:text-4xl font-bold text-green-600 mb-2">$2.3M</div>
+              <p className="text-sm sm:text-base text-gray-600">Revenue Generated</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">65%</div>
-              <p className="text-gray-600">Reduction in Cost Per Lead</p>
+              <div className="text-3xl sm:text-4xl font-bold text-purple-600 mb-2">65%</div>
+              <p className="text-sm sm:text-base text-gray-600">Reduction in Cost Per Lead</p>
             </div>
           </div>
-          <p className="text-lg text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-center max-w-4xl mx-auto px-4">
             Kinetico Corporate, a leading water treatment solutions provider, partnered with us to 
             enhance their digital presence and drive customer acquisition through their strategic 
             partnership with Costco. Our comprehensive digital marketing approach transformed their 
