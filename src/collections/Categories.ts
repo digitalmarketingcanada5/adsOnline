@@ -32,6 +32,22 @@ export const Categories: CollectionConfig = {
       },
     },
   ],
+  hooks: {
+    beforeChange: [
+      ({ data, operation }) => {
+        if ((operation === 'create' || operation === 'update') && data) {
+          // Auto-generate slug from name if not provided
+          if (data.name && !data.slug) {
+            data.slug = data.name
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/(^-|-$)/g, '')
+          }
+        }
+        return data
+      },
+    ],
+  },
   access: {
     read: () => true,
   },

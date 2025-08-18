@@ -129,7 +129,8 @@ export default function BlogsCategories() {
         </div>
       </motion.div>
 
-      {/* Newsletter Signup */}
+      {/* Newsletter Signup - Commented out until functionality is implemented */}
+      {/*
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -152,6 +153,7 @@ export default function BlogsCategories() {
           </button>
         </div>
       </motion.div>
+      */}
     </div>
   )
 }

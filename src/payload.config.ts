@@ -33,4 +33,5 @@ export default buildConfig({
       fileSize: 5000000, // 5MB
     },
   },
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
 })

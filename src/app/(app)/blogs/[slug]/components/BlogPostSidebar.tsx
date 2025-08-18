@@ -5,21 +5,23 @@ import Link from 'next/link'
 
 interface BlogPostSidebarProps {
   post: {
-    author: {
-      name: string
+    author?: {
+      name?: string
     }
-    category: {
-      name: string
-      slug: string
+    category?: {
+      name?: string
+      slug?: string
       color?: string
     }
-    publishedAt: string
+    publishedAt?: string
     readTime?: number
   }
 }
 
 export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
-  const categoryColor = post.category.color || '#3B82F6'
+  const categoryColor = post.category?.color || '#3B82F6'
+  const authorName = post.author?.name || 'Anonymous'
+  const authorInitial = authorName.charAt(0).toUpperCase()
 
   return (
     <div className="space-y-6">
@@ -33,10 +35,10 @@ export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
         <h3 className="text-lg font-bold text-gray-900 mb-4">About the Author</h3>
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
-            {post.author.name.charAt(0)}
+            {authorInitial}
           </div>
           <div>
-            <h4 className="font-semibold text-gray-900">{post.author.name}</h4>
+            <h4 className="font-semibold text-gray-900">{authorName}</h4>
             <p className="text-sm text-gray-600">Digital Marketing Expert</p>
           </div>
         </div>
@@ -54,14 +56,14 @@ export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
           <div>
             <span className="text-sm text-gray-600">Category:</span>
             <Link
-              href={`/blogs?category=${post.category.slug}`}
+              href={`/blogs?category=${post.category?.slug || ''}`}
               className="block mt-1"
             >
               <span
                 className="inline-block px-3 py-1 text-sm font-semibold text-white rounded-full hover:opacity-80 transition-opacity duration-200"
                 style={{ backgroundColor: categoryColor }}
               >
-                {post.category.name}
+                {post.category?.name || 'Uncategorized'}
               </span>
             </Link>
           </div>
@@ -69,11 +71,11 @@ export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
           <div>
             <span className="text-sm text-gray-600">Published:</span>
             <p className="text-gray-900 mt-1">
-              {new Date(post.publishedAt).toLocaleDateString('en-US', {
+              {post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
-              })}
+              }) : 'Not published'}
             </p>
           </div>
 

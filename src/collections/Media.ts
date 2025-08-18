@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    staticDir: '../public/media',
+    staticDir: 'public/media',
     imageSizes: [
       {
         name: 'thumbnail',
@@ -26,6 +26,7 @@ export const Media: CollectionConfig = {
     ],
     adminThumbnail: 'thumbnail',
     mimeTypes: ['image/*'],
+    disableLocalStorage: false,
   },
   fields: [
     {
