@@ -20,7 +20,7 @@ interface BlogPostSidebarProps {
 
 export default function BlogPostSidebar({ post }: BlogPostSidebarProps) {
   const categoryColor = post.category?.color || '#3B82F6'
-  const authorName = post.author?.name || 'Anonymous'
+  const authorName = post.author?.name || 'Naj Sher'
   const authorInitial = authorName.charAt(0).toUpperCase()
 
   return (
