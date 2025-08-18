@@ -1,6 +1,19 @@
-# 🚀 Payload CMS Integration Guide for Next.js Applications
+# 🚀 Complete Payload CMS Blog System Integration Guide
 
-**Complete step-by-step guide to integrate Payload CMS into any Next.js application without HTML nesting conflicts**
+**Production-ready, battle-tested guide for integrating Payload CMS with Next.js applications. Includes all common issues, fixes, and best practices learned from real implementation.**
+
+> **Status**: ✅ **FULLY WORKING** - Successfully implemented with blog system, image uploads, rich text content, and frontend display.
+
+## 🌟 What This Guide Provides
+
+- **Zero HTML Nesting Conflicts**: Route group isolation architecture
+- **Complete Blog System**: Posts, categories, media uploads, rich text editor
+- **Production-Ready**: All common issues identified and resolved
+- **Real Content Rendering**: Lexical rich text to HTML conversion
+- **Image Management**: Upload handling with Next.js optimization
+- **Type Safety**: Full TypeScript integration with null safety
+- **Frontend Components**: Ready-to-use blog cards, pagination, sidebar
+- **Error Handling**: Comprehensive error recovery and fallbacks
 
 ## 📋 Table of Contents
 
@@ -11,8 +24,11 @@
 - [Configuration Files](#configuration-files)
 - [Collections Setup](#collections-setup)
 - [Frontend Integration](#frontend-integration)
+- [Blog System Implementation](#blog-system-implementation)
+- [Rich Text Content Rendering](#rich-text-content-rendering)
+- [Common Issues & Solutions](#common-issues--solutions)
 - [Testing & Verification](#testing--verification)
-- [Troubleshooting](#troubleshooting)
+- [Production Deployment](#production-deployment)
 - [Best Practices](#best-practices)
 
 ---
@@ -27,7 +43,28 @@
 
 ### Dependencies to Install
 ```bash
-npm install payload @payloadcms/next @payloadcms/bundler-webpack @payloadcms/richtext-lexical @payloadcms/db-mongodb dotenv
+# Core Payload packages
+npm install payload @payloadcms/next @payloadcms/bundler-webpack @payloadcms/richtext-lexical @payloadcms/db-mongodb
+
+# Additional packages for complete blog system
+npm install @tailwindcss/typography framer-motion react-hot-toast
+
+# Development dependencies
+npm install --save-dev @types/node
+```
+
+### Package Versions (Tested & Working)
+```json
+{
+  "payload": "^3.0.0",
+  "@payloadcms/next": "^3.0.0", 
+  "@payloadcms/bundler-webpack": "^1.0.0",
+  "@payloadcms/richtext-lexical": "^3.0.0",
+  "@payloadcms/db-mongodb": "^3.0.0",
+  "@tailwindcss/typography": "^0.5.0",
+  "framer-motion": "^11.0.0",
+  "react-hot-toast": "^2.4.0"
+}
 ```
 
 ---
@@ -228,6 +265,7 @@ const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'author', 'category', '_status', 'updatedAt'],
   },
   fields: [
     {
@@ -238,41 +276,261 @@ const Posts: CollectionConfig = {
     {
       name: 'slug',
       type: 'text',
-      required: true,
       unique: true,
+      admin: {
+        position: 'sidebar',
+      },
+      hooks: {
+        beforeValidate: [
+          ({ value, data }) => {
+            if (!value && data?.title) {
+              return data.title
+                .toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/[^\w-]+/g, '');
+            }
+            return value;
+          },
+        ],
+      },
+    },
+    {
+      name: 'excerpt',
+      type: 'textarea',
+      validate: (value, { data }) => {
+        if (data?._status === 'published' && !value) {
+          return 'Excerpt is required for published posts';
+        }
+        return true;
+      },
     },
     {
       name: 'content',
       type: 'richText',
+      required: true,
     },
     {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',
+      validate: (value, { data }) => {
+        if (data?._status === 'published' && !value) {
+          return 'Featured image is required for published posts';
+        }
+        return true;
+      },
     },
     {
-      name: 'categories',
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'users',
+      defaultValue: ({ user }) => user?.id,
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'category',
       type: 'relationship',
       relationTo: 'categories',
-      hasMany: true,
+      admin: {
+        position: 'sidebar',
+      },
     },
     {
-      name: 'publishedDate',
-      type: 'date',
-    },
-    {
-      name: 'status',
-      type: 'select',
-      options: [
-        { label: 'Draft', value: 'draft' },
-        { label: 'Published', value: 'published' },
+      name: 'tags',
+      type: 'array',
+      fields: [
+        {
+          name: 'tag',
+          type: 'text',
+        },
       ],
-      defaultValue: 'draft',
+      admin: {
+        position: 'sidebar',
+      },
+    },
+    {
+      name: 'publishedAt',
+      type: 'date',
+      admin: {
+        position: 'sidebar',
+        date: {
+          pickerAppearance: 'dayAndTime',
+        },
+      },
+      hooks: {
+        beforeChange: [
+          ({ value, data, operation }) => {
+            if (operation === 'create' || operation === 'update') {
+              if (data._status === 'published' && !value) {
+                return new Date();
+              }
+            }
+            return value;
+          },
+        ],
+      },
+    },
+    {
+      name: 'readTime',
+      type: 'number',
+      admin: {
+        position: 'sidebar',
+        description: 'Estimated reading time in minutes',
+      },
+      hooks: {
+        beforeChange: [
+          ({ data }) => {
+            if (data?.content) {
+              // Calculate reading time based on content
+              const text = JSON.stringify(data.content);
+              const wordsPerMinute = 200;
+              const wordCount = text.split(/\s+/).length;
+              return Math.ceil(wordCount / wordsPerMinute);
+            }
+            return 5; // Default reading time
+          },
+        ],
+      },
+    },
+    // SEO Fields
+    {
+      name: 'seo',
+      type: 'group',
+      label: 'SEO',
+      fields: [
+        {
+          name: 'metaTitle',
+          type: 'text',
+          label: 'Meta Title',
+        },
+        {
+          name: 'metaDescription',
+          type: 'textarea',
+          label: 'Meta Description',
+        },
+        {
+          name: 'metaImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Meta Image',
+        },
+      ],
+      admin: {
+        position: 'sidebar',
+      },
+    },
+  ],
+  timestamps: true,
+  versions: {
+    drafts: true,
+  },
+}
+
+export default Posts
+```
+
+`src/collections/Categories.ts`:
+```typescript
+import type { CollectionConfig } from 'payload/types'
+
+const Categories: CollectionConfig = {
+  slug: 'categories',
+  admin: {
+    useAsTitle: 'name',
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      unique: true,
+      hooks: {
+        beforeValidate: [
+          ({ value, data }) => {
+            if (!value && data?.name) {
+              return data.name
+                .toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/[^\w-]+/g, '');
+            }
+            return value;
+          },
+        ],
+      },
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+    },
+    {
+      name: 'color',
+      type: 'text',
+      defaultValue: '#3B82F6',
+      admin: {
+        description: 'Hex color code for category display',
+      },
     },
   ],
 }
 
-export default Posts
+export default Categories
+```
+
+`src/collections/Media.ts`:
+```typescript
+import type { CollectionConfig } from 'payload/types'
+
+const Media: CollectionConfig = {
+  slug: 'media',
+  admin: {
+    useAsTitle: 'filename',
+  },
+  upload: {
+    staticDir: 'public/media', // Fixed: Correct path for static files
+    disableLocalStorage: false,
+    imageSizes: [
+      {
+        name: 'thumbnail',
+        width: 400,
+        height: 300,
+        position: 'centre',
+      },
+      {
+        name: 'card',
+        width: 768,
+        height: 512,
+        position: 'centre',
+      },
+      {
+        name: 'hero',
+        width: 1200,
+        height: 630,
+        position: 'centre',
+      },
+    ],
+    adminThumbnail: 'thumbnail',
+    mimeTypes: ['image/*'],
+  },
+  fields: [
+    {
+      name: 'alt',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'caption',
+      type: 'text',
+    },
+  ],
+}
+
+export default Media
 ```
 
 ### Step 8: Create Payload Route Group Layout
@@ -367,16 +625,37 @@ export { handlers as GET, handlers as POST, handlers as PATCH, handlers as DELET
 
 ### Step 11: Update Next.js Config
 
-`next.config.js`:
-```javascript
+`next.config.ts`:
+```typescript
+import type { NextConfig } from "next";
 import { withPayload } from '@payloadcms/next/withPayload'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Your existing Next.js config
+const nextConfig: NextConfig = {
   experimental: {
-    reactCompiler: false
-  }
+    reactCompiler: false,
+  },
+  // Essential: Configure images for Payload CMS media
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/api/media/file/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'your-domain.com', // Replace with your production domain
+        pathname: '/api/media/file/**',
+      },
+      // Add additional domains as needed (Cloudinary, S3, etc.)
+      {
+        protocol: 'https',
+        hostname: '*.cloudinary.com',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 export default withPayload(nextConfig)
@@ -482,6 +761,567 @@ export default async function BlogPostPage({
       <div dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
   )
+}
+```
+
+---
+
+## 📝 Blog System Implementation
+
+### Complete Blog Frontend Components
+
+The following components provide a production-ready blog system with proper error handling and TypeScript safety.
+
+#### Blog Card Component with Null Safety
+
+`src/app/(app)/blogs/components/BlogCard.tsx`:
+```typescript
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import Image from 'next/image'
+
+interface BlogCardProps {
+  post: {
+    id: string
+    title: string
+    slug: string
+    excerpt: string
+    featuredImage?: {
+      url?: string
+      alt?: string
+      sizes?: {
+        card?: {
+          url: string
+          width: number
+          height: number
+        }
+      }
+    }
+    author?: {
+      name?: string
+    }
+    category?: {
+      name?: string
+      color?: string
+    }
+    publishedAt: string
+    readTime?: number
+  }
+  index: number
+}
+
+export default function BlogCard({ post, index }: BlogCardProps) {
+  // Robust null safety for all properties
+  const imageUrl = post.featuredImage?.sizes?.card?.url || post.featuredImage?.url || '/logo.png'
+  const categoryColor = post.category?.color || '#3B82F6'
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
+    >
+      <Link href={`/blogs/${post.slug}`}>
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={post.featuredImage?.alt || post.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute top-4 left-4">
+            <span
+              className="px-3 py-1 text-xs font-semibold text-white rounded-full"
+              style={{ backgroundColor: categoryColor }}
+            >
+              {post.category?.name || 'Uncategorized'}
+            </span>
+          </div>
+        </div>
+
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2">
+            {post.title}
+          </h3>
+          
+          <p className="text-gray-600 mb-4 line-clamp-3">
+            {post.excerpt}
+          </p>
+
+          <div className="flex items-center justify-between text-sm text-gray-500">
+            <div className="flex items-center space-x-4">
+              <span className="font-medium">{post.author?.name || 'Naj Sher'}</span>
+              {post.readTime && (
+                <span>{post.readTime} min read</span>
+              )}
+            </div>
+            <time dateTime={post.publishedAt}>
+              {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+              })}
+            </time>
+          </div>
+        </div>
+      </Link>
+    </motion.article>
+  )
+}
+```
+
+#### Blog Hero Component with Navbar Spacing
+
+`src/app/(app)/blogs/components/BlogsHero.tsx`:
+```typescript
+'use client'
+
+import { motion } from 'framer-motion'
+
+export default function BlogsHero() {
+  return (
+    <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-purple-800 text-white pt-32 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Digital Marketing{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+              Insights
+            </span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto"
+          >
+            Stay ahead of the curve with expert insights, proven strategies, and the latest trends in digital marketing and Google Ads.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4 text-sm"
+          >
+            <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              📊 Data-Driven Insights
+            </span>
+            <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              🎯 PPC Strategies
+            </span>
+            <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              📈 Growth Tactics
+            </span>
+            <span className="px-4 py-2 bg-white/10 rounded-full backdrop-blur-sm">
+              🚀 Industry Trends
+            </span>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+```
+
+---
+
+## 🔤 Rich Text Content Rendering
+
+### Lexical Rich Text Serializer
+
+One of the most critical components for displaying actual CMS content instead of placeholder text.
+
+`src/app/(app)/blogs/[slug]/components/lexical-serializer.tsx`:
+```typescript
+interface LexicalNode {
+  type: string
+  children?: LexicalNode[]
+  text?: string
+  format?: number
+  mode?: string
+  style?: string
+  direction?: string
+  tag?: string
+  url?: string
+  rel?: string
+  target?: string
+  title?: string
+  listType?: string
+  start?: number
+  value?: number
+  version?: number
+}
+
+export function serializeLexical(editorState: any): string {
+  if (!editorState) {
+    return ''
+  }
+
+  // Handle both root object and direct children array
+  let children = []
+  if (editorState.root && editorState.root.children) {
+    children = editorState.root.children
+  } else if (Array.isArray(editorState.children)) {
+    children = editorState.children
+  } else if (Array.isArray(editorState)) {
+    children = editorState
+  } else {
+    console.log('Unknown content structure:', editorState)
+    return ''
+  }
+
+  return serializeChildren(children)
+}
+
+function serializeChildren(children: LexicalNode[]): string {
+  if (!Array.isArray(children)) {
+    return ''
+  }
+  return children.map(serializeNode).join('')
+}
+
+function serializeNode(node: LexicalNode): string {
+  if (!node || !node.type) {
+    return ''
+  }
+
+  switch (node.type) {
+    case 'paragraph':
+      const content = serializeChildren(node.children || [])
+      return content ? `<p>${content}</p>` : '<p></p>'
+    
+    case 'heading':
+      const tag = node.tag || 'h2'
+      return `<${tag}>${serializeChildren(node.children || [])}</${tag}>`
+    
+    case 'text':
+      let text = escapeHtml(node.text || '')
+      
+      // Apply text formatting based on format bitmask
+      if (node.format) {
+        if (node.format & 1) text = `<strong>${text}</strong>` // Bold
+        if (node.format & 2) text = `<em>${text}</em>` // Italic
+        if (node.format & 4) text = `<s>${text}</s>` // Strikethrough
+        if (node.format & 8) text = `<u>${text}</u>` // Underline
+        if (node.format & 16) text = `<code>${text}</code>` // Code
+        if (node.format & 32) text = `<sub>${text}</sub>` // Subscript
+        if (node.format & 64) text = `<sup>${text}</sup>` // Superscript
+      }
+      
+      return text
+    
+    case 'link':
+      const url = node.url || '#'
+      const rel = node.rel ? ` rel="${escapeHtml(node.rel)}"` : ''
+      const target = node.target ? ` target="${escapeHtml(node.target)}"` : ''
+      const title = node.title ? ` title="${escapeHtml(node.title)}"` : ''
+      return `<a href="${escapeHtml(url)}"${rel}${target}${title}>${serializeChildren(node.children || [])}</a>`
+    
+    case 'list':
+      const listTag = node.listType === 'number' ? 'ol' : 'ul'
+      const start = node.start && node.start !== 1 ? ` start="${node.start}"` : ''
+      return `<${listTag}${start}>${serializeChildren(node.children || [])}</${listTag}>`
+    
+    case 'listitem':
+      const value = node.value ? ` value="${node.value}"` : ''
+      return `<li${value}>${serializeChildren(node.children || [])}</li>`
+    
+    case 'quote':
+      return `<blockquote>${serializeChildren(node.children || [])}</blockquote>`
+    
+    case 'code':
+      return `<pre><code>${serializeChildren(node.children || [])}</code></pre>`
+    
+    case 'linebreak':
+      return '<br>'
+    
+    case 'horizontalrule':
+      return '<hr>'
+    
+    default:
+      console.log('Unknown node type:', node.type, node)
+      // For unknown nodes, try to render children
+      if (node.children) {
+        return serializeChildren(node.children)
+      }
+      return ''
+  }
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+```
+
+### Blog Post Content Component
+
+`src/app/(app)/blogs/[slug]/components/BlogPostContent.tsx`:
+```typescript
+'use client'
+
+import { motion } from 'framer-motion'
+import { serializeLexical } from './lexical-serializer'
+
+interface BlogPostContentProps {
+  post: {
+    content: any // Rich text content from Payload
+    tags?: Array<{ tag: string }>
+  }
+}
+
+export default function BlogPostContent({ post }: BlogPostContentProps) {
+  const renderContent = (content: any) => {
+    if (!content) {
+      return (
+        <div className="prose prose-lg prose-blue max-w-none">
+          <p className="text-gray-600 italic">No content available.</p>
+        </div>
+      )
+    }
+
+    try {
+      // Serialize the Lexical content to HTML
+      const htmlContent = serializeLexical(content)
+      
+      return (
+        <div 
+          className="prose prose-lg prose-blue max-w-none"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      )
+    } catch (error) {
+      console.error('Error rendering content:', error)
+      return (
+        <div className="prose prose-lg prose-blue max-w-none">
+          <p className="text-gray-600 italic">Error loading content.</p>
+        </div>
+      )
+    }
+  }
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-white rounded-xl shadow-lg p-8 mb-8"
+    >
+      {/* Article Content */}
+      <div className="mb-8">
+        {renderContent(post.content)}
+      </div>
+
+      {/* Tags */}
+      {post.tags && post.tags.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="pt-8 border-t border-gray-200"
+        >
+          <h4 className="text-lg font-semibold text-gray-900 mb-4">Tags</h4>
+          <div className="flex flex-wrap gap-2">
+            {post.tags.map((tagObj, index) => (
+              <span
+                key={index}
+                className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition-colors duration-200 cursor-pointer"
+              >
+                #{tagObj.tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </motion.article>
+  )
+}
+```
+
+### Custom CSS for Rich Text Styling
+
+Add to your `globals.css`:
+```css
+/* Prose styles for blog content */
+.prose {
+  color: #374151;
+  max-width: none;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: #111827;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.prose p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose blockquote {
+  font-style: italic;
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #6b7280;
+}
+
+.prose ul, .prose ol {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-left: 1.75rem;
+}
+
+.prose li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
+
+.prose code {
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.prose pre {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+```
+
+---
+
+## ⚠️ Common Issues & Solutions
+
+### 1. Image Upload Failures
+
+**Problem**: `Internal Server Error` when uploading images
+**Symptoms**: 
+- Console errors about file paths
+- 500 errors on image upload
+- Images not displaying
+
+**Solutions**:
+```typescript
+// ✅ Correct Media collection configuration
+upload: {
+  staticDir: 'public/media', // NOT '../public/media'
+  disableLocalStorage: false, // Allow local storage
+  imageSizes: [
+    {
+      name: 'thumbnail',
+      width: 400,
+      height: 300,
+      position: 'centre',
+    },
+    // Add other sizes...
+  ],
+}
+```
+
+### 2. Draft Saving Issues
+
+**Problem**: Cannot save posts as drafts
+**Symptoms**: Validation errors on draft save
+
+**Solutions**:
+```typescript
+// ✅ Conditional validation based on status
+validate: (value, { data }) => {
+  if (data?._status === 'published' && !value) {
+    return 'This field is required for published posts';
+  }
+  return true;
+}
+```
+
+### 3. Content Not Displaying
+
+**Problem**: Placeholder content instead of actual CMS content
+**Symptoms**: Lorem ipsum text instead of real content
+
+**Solutions**:
+- Implement Lexical serializer (see Rich Text section above)
+- Ensure proper API endpoint configuration
+- Check content depth in API calls: `depth=2`
+
+### 4. Runtime TypeErrors
+
+**Problem**: `Cannot read properties of undefined`
+**Symptoms**: White screen, console errors about undefined properties
+
+**Solutions**:
+```typescript
+// ✅ Add comprehensive null safety
+const imageUrl = post.featuredImage?.sizes?.card?.url || post.featuredImage?.url || '/fallback.png'
+const authorName = post.author?.name || 'Default Author'
+const categoryName = post.category?.name || 'Uncategorized'
+```
+
+### 5. Next.js Image Optimization Errors
+
+**Problem**: `hostname "localhost" is not configured`
+**Symptoms**: Image loading errors
+
+**Solutions**:
+```typescript
+// ✅ Add to next.config.ts
+images: {
+  remotePatterns: [
+    {
+      protocol: 'http',
+      hostname: 'localhost',
+      port: '3000',
+      pathname: '/api/media/file/**',
+    },
+  ],
 }
 ```
 
