@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { serializeLexical } from './lexical-serializer'
 
 interface BlogPostContentProps {
   post: {
@@ -10,57 +11,33 @@ interface BlogPostContentProps {
 }
 
 export default function BlogPostContent({ post }: BlogPostContentProps) {
-  // This is a simplified version. In a real implementation,
-  // you'd need to render the rich text content properly
   const renderContent = (content: any) => {
-    // This would be replaced with proper rich text rendering
-    // For now, we'll show a placeholder
-    return (
-      <div className="prose prose-lg prose-blue max-w-none">
-        <p className="text-gray-600 italic mb-8">
-          [Rich text content would be rendered here from your Payload CMS]
-        </p>
-        
-        {/* Example content structure */}
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+    if (!content) {
+      return (
+        <div className="prose prose-lg prose-blue max-w-none">
+          <p className="text-gray-600 italic">No content available.</p>
+        </div>
+      )
+    }
 
-        <h2>Understanding Digital Marketing</h2>
-        <p>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-          eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-          in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <h3>Key Strategies</h3>
-        <ul>
-          <li>Search Engine Optimization (SEO)</li>
-          <li>Pay-Per-Click Advertising (PPC)</li>
-          <li>Social Media Marketing</li>
-          <li>Content Marketing</li>
-          <li>Email Marketing</li>
-        </ul>
-
-        <blockquote>
-          "The best marketing doesn't feel like marketing." - Tom Fishburne
-        </blockquote>
-
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-          veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </p>
-
-        <h2>Implementation Tips</h2>
-        <p>
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-          sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-        </p>
-      </div>
-    )
+    try {
+      // Serialize the Lexical content to HTML
+      const htmlContent = serializeLexical(content)
+      
+      return (
+        <div 
+          className="prose prose-lg prose-blue max-w-none"
+          dangerouslySetInnerHTML={{ __html: htmlContent }}
+        />
+      )
+    } catch (error) {
+      console.error('Error rendering content:', error)
+      return (
+        <div className="prose prose-lg prose-blue max-w-none">
+          <p className="text-gray-600 italic">Error loading content.</p>
+        </div>
+      )
+    }
   }
 
   return (

@@ -10,9 +10,9 @@ interface BlogCardProps {
     title: string
     slug: string
     excerpt: string
-    featuredImage: {
-      url: string
-      alt: string
+    featuredImage?: {
+      url?: string
+      alt?: string
       sizes?: {
         card?: {
           url: string
@@ -21,11 +21,11 @@ interface BlogCardProps {
         }
       }
     }
-    author: {
-      name: string
+    author?: {
+      name?: string
     }
-    category: {
-      name: string
+    category?: {
+      name?: string
       color?: string
     }
     publishedAt: string
@@ -35,8 +35,8 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, index }: BlogCardProps) {
-  const imageUrl = post.featuredImage.sizes?.card?.url || post.featuredImage.url
-  const categoryColor = post.category.color || '#3B82F6'
+  const imageUrl = post.featuredImage?.sizes?.card?.url || post.featuredImage?.url || '/logo.png'
+  const categoryColor = post.category?.color || '#3B82F6'
 
   return (
     <motion.article
@@ -50,7 +50,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         <div className="relative h-48 overflow-hidden">
           <Image
             src={imageUrl}
-            alt={post.featuredImage.alt}
+            alt={post.featuredImage?.alt || post.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
@@ -59,7 +59,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
               className="px-3 py-1 text-xs font-semibold text-white rounded-full"
               style={{ backgroundColor: categoryColor }}
             >
-              {post.category.name}
+              {post.category?.name || 'Uncategorized'}
             </span>
           </div>
         </div>
@@ -75,7 +75,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
 
           <div className="flex items-center justify-between text-sm text-gray-500">
             <div className="flex items-center space-x-4">
-              <span className="font-medium">{post.author.name}</span>
+              <span className="font-medium">{post.author?.name || 'Naj Sher'}</span>
               {post.readTime && (
                 <span>{post.readTime} min read</span>
               )}

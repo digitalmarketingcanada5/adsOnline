@@ -10,9 +10,9 @@ interface Post {
   title: string
   slug: string
   excerpt: string
-  featuredImage: {
-    url: string
-    alt: string
+  featuredImage?: {
+    url?: string
+    alt?: string
     sizes?: {
       card?: {
         url: string
@@ -21,11 +21,11 @@ interface Post {
       }
     }
   }
-  author: {
-    name: string
+  author?: {
+    name?: string
   }
-  category: {
-    name: string
+  category?: {
+    name?: string
     color?: string
   }
   publishedAt: string
