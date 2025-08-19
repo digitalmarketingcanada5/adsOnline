@@ -4,11 +4,11 @@ import configPromise from '@/payload.config'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { filename: string } }
+  { params }: { params: Promise<{ filename: string }> }
 ) {
   try {
     const payload = await getPayload({ config: configPromise })
-    const { filename } = params
+    const { filename } = await params
 
     // Query the media collection to get the Cloudinary URL
     const media = await payload.find({

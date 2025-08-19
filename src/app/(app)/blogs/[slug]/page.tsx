@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${metaTitle} - AdsOnline Blog`,
     description: metaDescription,
-    keywords: post.tags?.map((tag: any) => tag.tag).join(', '),
+    keywords: post.tags?.map((tag: { tag: string }) => tag.tag).join(', '),
     openGraph: {
       title: metaTitle,
       description: metaDescription,

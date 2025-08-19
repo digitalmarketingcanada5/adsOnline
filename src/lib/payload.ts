@@ -1,7 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '../payload.config'
 
-let cachedPayload: any = null
+let cachedPayload: unknown = null
 
 export async function getPayloadClient() {
   if (cachedPayload) {

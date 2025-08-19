@@ -47,7 +47,7 @@ export const Media: CollectionConfig = {
               throw new Error(`Invalid file type: ${req.file.mimetype}. Please upload an image file.`)
             }
             
-            const uploadResult = await new Promise<any>((resolve, reject) => {
+            const uploadResult = await new Promise<Record<string, unknown>>((resolve, reject) => {
               const uploadOptions = {
                 resource_type: 'auto' as const,
                 folder: 'agency-blog',
@@ -118,9 +118,20 @@ export const Media: CollectionConfig = {
             console.log('Cloudinary upload successful:', uploadResult.public_id)
 
             // Generate sizes from eager transformations
-            const sizes: Record<string, any> = {}
-            if (uploadResult.eager && uploadResult.eager.length > 0) {
-              uploadResult.eager.forEach((eager: any, index: number) => {
+            const sizes: Record<string, unknown> = {}
+            const result = uploadResult as Record<string, unknown> & {
+              eager?: Array<{
+                secure_url: string;
+                width: number;
+                height: number;
+                format: string;
+                bytes: number;
+              }>;
+              public_id: string;
+              original_filename?: string;
+            }
+            if (result.eager && result.eager.length > 0) {
+              result.eager.forEach((eager, index: number) => {
                 const sizeName = index === 0 ? 'thumbnail' : index === 1 ? 'card' : 'hero'
                 sizes[sizeName] = {
                   url: eager.secure_url,
@@ -128,13 +139,13 @@ export const Media: CollectionConfig = {
                   height: eager.height,
                   mimeType: `image/${eager.format}`,
                   filesize: eager.bytes,
-                  filename: `${uploadResult.public_id}_${sizeName}.${eager.format}`,
+                  filename: `${result.public_id}_${sizeName}.${eager.format}`,
                 }
               })
             }
 
             // Sanitize filename to remove special characters and spaces
-            const sanitizedFilename = (uploadResult.original_filename || req.file.name)
+            const sanitizedFilename = (result.original_filename || req.file.name)
               .replace(/[^a-zA-Z0-9.-]/g, '_') // Replace special chars with underscore
               .replace(/_{2,}/g, '_') // Replace multiple underscores with single
               .toLowerCase()

@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import BlogCard from '../../components/BlogCard'
 import { type ImageData } from '@/lib/image-utils'
@@ -36,11 +37,7 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
   const [relatedPosts, setRelatedPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    fetchRelatedPosts()
-  }, [currentPost.id])
-
-  const fetchRelatedPosts = async () => {
+  const fetchRelatedPosts = useCallback(async () => {
     try {
       setLoading(true)
       
@@ -80,7 +77,11 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [currentPost.id, currentPost.category.id])
+
+  useEffect(() => {
+    fetchRelatedPosts()
+  }, [fetchRelatedPosts])
 
   if (loading) {
     return (
@@ -127,7 +128,7 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-12"
         >
-          <a
+          <Link
             href="/blogs"
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
           >
@@ -135,7 +136,7 @@ export default function RelatedPosts({ currentPost }: RelatedPostsProps) {
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

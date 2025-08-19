@@ -5,13 +5,13 @@ import { serializeLexical } from './lexical-serializer'
 
 interface BlogPostContentProps {
   post: {
-    content: any // Rich text content from Payload
+    content: unknown // Rich text content from Payload
     tags?: Array<{ tag: string }>
   }
 }
 
 export default function BlogPostContent({ post }: BlogPostContentProps) {
-  const renderContent = (content: any) => {
+  const renderContent = (content: unknown) => {
     if (!content) {
       return (
         <div className="prose prose-lg prose-blue max-w-none">

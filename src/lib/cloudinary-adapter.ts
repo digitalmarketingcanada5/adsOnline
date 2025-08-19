@@ -44,7 +44,7 @@ export const uploadToCloudinary = async (
     filename: string
     mimetype: string
     folder?: string
-    transformation?: any
+    transformation?: unknown
   }
 ): Promise<CloudinaryUploadResult> => {
   return new Promise((resolve, reject) => {
@@ -82,7 +82,7 @@ export const uploadToCloudinary = async (
         },
       ],
       eager_async: false,
-      ...options.transformation,
+      ...(typeof options.transformation === 'object' && options.transformation ? options.transformation : {}),
     }
 
     cloudinary.uploader
@@ -113,10 +113,10 @@ export const deleteFromCloudinary = async (publicId: string): Promise<void> => {
   })
 }
 
-export const getCloudinaryUrl = (publicId: string, transformation?: any) => {
+export const getCloudinaryUrl = (publicId: string, transformation?: unknown) => {
   return cloudinary.url(publicId, {
     secure: true,
-    ...transformation,
+    ...(typeof transformation === 'object' && transformation ? transformation : {}),
   })
 }
 

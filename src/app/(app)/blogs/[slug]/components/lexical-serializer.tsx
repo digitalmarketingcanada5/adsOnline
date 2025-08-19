@@ -17,17 +17,22 @@ interface LexicalNode {
   version?: number
 }
 
-export function serializeLexical(editorState: any): string {
+export function serializeLexical(editorState: unknown): string {
   if (!editorState) {
     return ''
   }
 
   // Handle both root object and direct children array
   let children = []
-  if (editorState.root && editorState.root.children) {
-    children = editorState.root.children
-  } else if (Array.isArray(editorState.children)) {
-    children = editorState.children
+  const state = editorState as Record<string, unknown>
+  
+  if (state.root && typeof state.root === 'object' && state.root !== null) {
+    const root = state.root as Record<string, unknown>
+    if (Array.isArray(root.children)) {
+      children = root.children
+    }
+  } else if (Array.isArray(state.children)) {
+    children = state.children
   } else if (Array.isArray(editorState)) {
     children = editorState
   } else {
