@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialIcon from "../../../components/MaterialIcon";
+import MaterialIcon from "@/components/MaterialIcon";
 
 const PricingSection: React.FC = () => {
   const plans = [

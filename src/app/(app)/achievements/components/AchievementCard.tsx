@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialIcon from '../../../components/MaterialIcon';
+import MaterialIcon from '@/components/MaterialIcon';
 
 interface AchievementCardProps {
     cardType?: 'image' | 'background';
