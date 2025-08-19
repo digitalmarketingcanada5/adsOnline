@@ -35,8 +35,8 @@ export const Posts: CollectionConfig = {
       admin: {
         description: 'Brief summary for blog cards and SEO',
       },
-      validate: (value, { data }) => {
-        if (data?._status === 'published' && (!value || value.trim() === '')) {
+      validate: (value: unknown, { data }: { data: { _status?: string } }) => {
+        if (data?._status === 'published' && (!value || (typeof value === 'string' && value.trim() === ''))) {
           return 'Excerpt is required for published posts'
         }
         return true
@@ -50,7 +50,7 @@ export const Posts: CollectionConfig = {
       admin: {
         description: 'Main image displayed in blog cards and post header',
       },
-      validate: (value, { data }) => {
+      validate: (value: unknown, { data }: { data: { _status?: string } }) => {
         if (data?._status === 'published' && !value) {
           return 'Featured image is required for published posts'
         }
@@ -61,7 +61,7 @@ export const Posts: CollectionConfig = {
       name: 'content',
       type: 'richText',
       required: false,
-      validate: (value, { data }) => {
+      validate: (value: unknown, { data }: { data: { _status?: string } }) => {
         if (data?._status === 'published' && !value) {
           return 'Content is required for published posts'
         }
@@ -73,7 +73,7 @@ export const Posts: CollectionConfig = {
       type: 'relationship',
       relationTo: 'users',
       required: false,
-      validate: (value, { data }) => {
+      validate: (value: unknown, { data }: { data: { _status?: string } }) => {
         if (data?._status === 'published' && !value) {
           return 'Author is required for published posts'
         }
@@ -85,7 +85,7 @@ export const Posts: CollectionConfig = {
       type: 'relationship',
       relationTo: 'categories',
       required: false,
-      validate: (value, { data }) => {
+      validate: (value: unknown, { data }: { data: { _status?: string } }) => {
         if (data?._status === 'published' && !value) {
           return 'Category is required for published posts'
         }

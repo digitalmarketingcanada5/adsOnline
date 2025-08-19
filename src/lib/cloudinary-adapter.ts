@@ -24,7 +24,7 @@ export interface CloudinaryUploadResult {
   placeholder: boolean
   url: string
   secure_url: string
-  folder: string
+  folder?: string
   access_mode: string
   original_filename: string
   eager?: Array<{

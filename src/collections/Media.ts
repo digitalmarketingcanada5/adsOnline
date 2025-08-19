@@ -85,9 +85,9 @@ export const Media: CollectionConfig = {
               }
 
               // Use tempFilePath if available (better for large files)
-              if (req.file.tempFilePath) {
-                console.log('Using tempFilePath:', req.file.tempFilePath)
-                cloudinary.uploader.upload(req.file.tempFilePath, uploadOptions, (error, result) => {
+              if (req.file!.tempFilePath) {
+                console.log('Using tempFilePath:', req.file!.tempFilePath)
+                cloudinary.uploader.upload(req.file!.tempFilePath, uploadOptions, (error, result) => {
                   if (error) {
                     console.error('Cloudinary upload error:', error)
                     reject(error)
@@ -99,7 +99,7 @@ export const Media: CollectionConfig = {
                 })
               } else {
                 // Fallback to buffer if tempFilePath not available
-                console.log('Using buffer, length:', req.file.data?.length)
+                console.log('Using buffer, length:', req.file!.data?.length)
                 cloudinary.uploader
                   .upload_stream(uploadOptions, (error, result) => {
                     if (error) {
@@ -111,7 +111,7 @@ export const Media: CollectionConfig = {
                       reject(new Error('Upload failed: No result returned'))
                     }
                   })
-                  .end(req.file.data)
+                  .end(req.file!.data)
               }
             })
 
