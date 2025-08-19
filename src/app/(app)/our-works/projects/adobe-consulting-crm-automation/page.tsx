@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import AnimatedCounter from '../../../../components/AnimatedCounter';
+import AnimatedCounter from '../../../../../components/AnimatedCounter';
 
 // Icon Components for the four-column section
 const MarketingAutomationIcon = () => (

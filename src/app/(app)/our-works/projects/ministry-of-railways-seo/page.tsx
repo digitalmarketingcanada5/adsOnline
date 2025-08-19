@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import AnimatedCounter from '../../../../components/AnimatedCounter';
+import AnimatedCounter from '../../../../../components/AnimatedCounter';
 
 // Icon Components for the four-column section
 const SEOOptimizationIcon = () => (

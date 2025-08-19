@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import AnimatedCounter from '../../../../components/AnimatedCounter';
+import AnimatedCounter from '../../../../../components/AnimatedCounter';
 
 export default function WaterTreatmentSolutionsPage() {
   const videoRef = useRef<HTMLVideoElement>(null);
