@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import BlogCard from '../../components/BlogCard'
+import { type ImageData } from '@/lib/image-utils'
 
 interface RelatedPostsProps {
   currentPost: {
@@ -19,17 +20,7 @@ interface Post {
   title: string
   slug: string
   excerpt: string
-  featuredImage: {
-    url: string
-    alt: string
-    sizes?: {
-      card?: {
-        url: string
-        width: number
-        height: number
-      }
-    }
-  }
+  featuredImage: ImageData
   author: {
     name: string
   }

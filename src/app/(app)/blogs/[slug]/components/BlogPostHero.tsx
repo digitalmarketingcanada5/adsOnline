@@ -3,22 +3,13 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getImageUrl, type ImageData } from '@/lib/image-utils'
 
 interface BlogPostHeroProps {
   post: {
     title: string
     excerpt: string
-    featuredImage: {
-      url: string
-      alt: string
-      sizes?: {
-        hero?: {
-          url: string
-          width: number
-          height: number
-        }
-      }
-    }
+    featuredImage: ImageData
     author: {
       name: string
     }
@@ -33,7 +24,7 @@ interface BlogPostHeroProps {
 }
 
 export default function BlogPostHero({ post }: BlogPostHeroProps) {
-  const imageUrl = post.featuredImage.sizes?.hero?.url || post.featuredImage.url
+  const imageUrl = getImageUrl(post.featuredImage, 'hero')
   const categoryColor = post.category.color || '#3B82F6'
 
   return (
@@ -42,7 +33,7 @@ export default function BlogPostHero({ post }: BlogPostHeroProps) {
       <div className="absolute inset-0">
         <Image
           src={imageUrl}
-          alt={post.featuredImage.alt}
+          alt={post.featuredImage.alt || post.title}
           fill
           className="object-cover opacity-30"
           priority

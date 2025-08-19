@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getImageUrl, type ImageData } from '@/lib/image-utils'
 
 interface BlogCardProps {
   post: {
@@ -10,17 +11,7 @@ interface BlogCardProps {
     title: string
     slug: string
     excerpt: string
-    featuredImage?: {
-      url?: string
-      alt?: string
-      sizes?: {
-        card?: {
-          url: string
-          width: number
-          height: number
-        }
-      }
-    }
+    featuredImage?: ImageData
     author?: {
       name?: string
     }
@@ -35,7 +26,7 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ post, index }: BlogCardProps) {
-  const imageUrl = post.featuredImage?.sizes?.card?.url || post.featuredImage?.url || '/logo.png'
+  const imageUrl = getImageUrl(post.featuredImage, 'card', '/logo.png')
   const categoryColor = post.category?.color || '#3B82F6'
 
   return (

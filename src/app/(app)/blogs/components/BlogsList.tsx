@@ -4,23 +4,14 @@ import { useState, useEffect } from 'react'
 import BlogCard from './BlogCard'
 import LoadingSpinner from './LoadingSpinner'
 import { toast } from 'react-hot-toast'
+import { type ImageData } from '@/lib/image-utils'
 
 interface Post {
   id: string
   title: string
   slug: string
   excerpt: string
-  featuredImage?: {
-    url?: string
-    alt?: string
-    sizes?: {
-      card?: {
-        url: string
-        width: number
-        height: number
-      }
-    }
-  }
+  featuredImage?: ImageData
   author?: {
     name?: string
   }
