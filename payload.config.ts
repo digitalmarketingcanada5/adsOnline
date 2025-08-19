@@ -21,7 +21,18 @@ export default buildConfig({
     outputFile: path.resolve('./src/payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || 'mongodb://localhost:27017/agency-blog',
+    // Database connection string from environment variables
+    url: process.env.DATABASE_URI as string,
+    connectOptions: {
+      dbName: 'efflingcms',                    // Database name
+      appName: 'efflingcms',                   // Application identifier for MongoDB
+      serverSelectionTimeoutMS: 10000,        // Timeout for finding MongoDB server
+      maxPoolSize: 10,                         // Maximum concurrent database connections
+      socketTimeoutMS: 45000,                  // Timeout for individual database operations
+      family: 4,                               // Use IPv4, avoid IPv6 connection issues
+      retryWrites: true,                       // Automatically retry failed writes
+      w: 'majority',                           // Write concern for data consistency
+    },
   }),
   email: nodemailerAdapter(),
   upload: {
