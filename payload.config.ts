@@ -2,7 +2,6 @@ import { buildConfig } from 'payload'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
-import sharp from 'sharp'
 import path from 'path'
 
 // Collections
@@ -25,10 +24,9 @@ export default buildConfig({
     url: process.env.DATABASE_URI || 'mongodb://localhost:27017/agency-blog',
   }),
   email: nodemailerAdapter(),
-  sharp,
   upload: {
     limits: {
-      fileSize: 5000000, // 5MB
+      fileSize: 10000000, // 10MB (increased from 5MB)
     },
   },
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
