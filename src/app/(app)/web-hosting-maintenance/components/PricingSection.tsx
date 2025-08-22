@@ -52,7 +52,7 @@ const PricingSection: React.FC = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="bg-gray-50 rounded-t-3xl p-4 text-center text-gray-300 dark:text-gray-700"
+              className="bg-gray-50 dark:bg-gray-800 rounded-t-3xl p-4 text-center text-gray-700 dark:text-gray-200"
             >
               <strong className="text-lg">{plan.name}</strong>
               <span className="lg:text-base text-xs block leading-tight">
@@ -66,7 +66,7 @@ const PricingSection: React.FC = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="bg-gray-50 rounded-b-3xl p-4 text-center text-gray-300 dark:text-gray-700"
+              className="bg-gray-50 dark:bg-gray-800 rounded-b-3xl p-4 text-center text-gray-700 dark:text-gray-200"
             >
               <span className="text-sm">Starting From</span>
               <br />
@@ -91,14 +91,20 @@ const PricingSection: React.FC = () => {
               {feature.values.map((value, index) => (
                 <div
                   key={index}
-                  className="w-full text-xs md:text-base bg-gray-50 flex items-center justify-center h-12 rounded-lg"
+                  className="w-full text-xs md:text-base bg-gray-50 dark:bg-gray-800 flex items-center justify-center h-12 rounded-lg transition-colors hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                   {value === true ? (
-                    <MaterialIcon className="text-gray-300 dark:text-gray-700 rounded-full bg-gray-50 !text-sm w-5 h-5 flex justify-center items-center">
+                    <MaterialIcon className="text-green-600 dark:text-green-400 rounded-full bg-green-50 dark:bg-green-900/20 !text-sm w-6 h-6 flex justify-center items-center border border-green-200 dark:border-green-800">
                       check
                     </MaterialIcon>
+                  ) : value ? (
+                    <span className="text-gray-700 dark:text-gray-200 font-medium">
+                      {value}
+                    </span>
                   ) : (
-                    value || ""
+                    <span className="text-gray-400 dark:text-gray-500 text-lg">
+                      —
+                    </span>
                   )}
                 </div>
               ))}
