@@ -68,6 +68,7 @@ const Header = () => {
       ],
     },
     { name: "Our Works", href: "/our-works" },
+    { name: "Projects", href: "/projects" },
     { name: "Blog", href: "/blogs" },
     // { name: 'Case Studies', href: '#' },
     { name: "Contact Us", href: "/contact-us" },
