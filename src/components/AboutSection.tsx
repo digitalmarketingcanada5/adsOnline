@@ -3,48 +3,121 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-const AboutSection = () => (
-    <section className="w-full bg-no-repeat xl:bg-hero-about xl:bg-contain bg-center px-4 sm:px-12 py-16">
-        <div className="container mx-auto flex flex-col justify-center items-stretch rounded-3xl overflow-hidden shadow-2xl lg:flex-row bg-red-600">
-            <div className="block relative mx-0 min-h-[500px] w-full lg:w-3/5 rounded-3xl overflow-hidden">
-                <Image
-                    src="/home_about_image.png"
-                    alt="About AdsOnline"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                />
-            </div>
-            <div className="flex flex-col items-start justify-center text-left w-full lg:w-2/5 shrink-0">
-                <div className="p-8 md:p-12 text-white">
-                    <h2 className="text-white text-3xl md:text-4xl font-bold mb-4 lg:mb-8">
-                        Connecting you to <span className="block">your customers</span>
-                    </h2>
-                    <p className="mb-4 lg:mb-8 text-lg">
-                        We focus on lead generation campaigns for small and mid-size businesses.
-                    </p>
-                    <p className="mb-8 text-base">
-                        Our goal is to help clients plan, build, and execute their digital advertising campaigns using the best of human expertise and our award-winning AI technology, Call Intelligence<sup>™</sup>.
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <a href="/about-us/" className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden">
-                            <div className="group md:text-lg text-base text-black font-bold bg-white h-full hover:text-white hover:bg-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                                <span className="tracking-tight">About Us</span>
-                                <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="group-hover:invert"/>
-                            </div>
+import AnimatedCounter from './AnimatedCounter';
+import MaterialIcon from './MaterialIcon';
+
+const AboutSection = () => {
+    const stats = [
+        { value: 300, suffix: '+', label: 'Active Clients', icon: 'groups' },
+        { value: 1005, suffix: '+', label: '5-Star Reviews', icon: 'star' },
+        { value: 98, suffix: '%', label: 'Client Retention', icon: 'trending_up' },
+        { value: 24, suffix: '/7', label: 'Support Available', icon: 'support_agent' }
+    ];
+
+    return (
+        <section className="w-full relative overflow-hidden py-20 md:py-32">
+            {/* Diagonal Background Split */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-red-600/20 via-transparent to-transparent"></div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-20 right-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+            <div className="container mx-auto px-4 sm:px-12 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left Content */}
+                    <div className="order-2 lg:order-1">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-6">
+                            <MaterialIcon className="text-red-400 text-lg">workspace_premium</MaterialIcon>
+                            <span className="text-sm font-semibold text-red-400">Award-Winning Agency</span>
+                        </div>
+
+                        <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            Building Bridges
+                            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-orange-400">
+                                Between You & Your Customers
+                            </span>
+                        </h2>
+
+                        <p className="mb-6 text-lg text-gray-300 leading-relaxed">
+                            We specialize in crafting high-performance lead generation campaigns tailored for small and mid-size businesses ready to scale.
+                        </p>
+
+                        <p className="mb-8 text-base text-gray-400 leading-relaxed">
+                            Our mission is simple: combine human expertise with our proprietary Call Intelligence™ technology to plan, build, and execute digital advertising campaigns that deliver real, measurable growth.
+                        </p>
+
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 gap-4 mb-8">
+                            {stats.map((stat, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:bg-white/10 transition-all duration-300 group"
+                                >
+                                    <div className="flex items-start gap-3">
+                                        <div className="p-2 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg group-hover:scale-110 transition-transform">
+                                            <MaterialIcon className="text-white text-xl">{stat.icon}</MaterialIcon>
+                                        </div>
+                                        <div>
+                                            <div className="text-2xl font-bold text-white">
+                                                <AnimatedCounter value={stat.value} />
+                                                <span>{stat.suffix}</span>
+                                            </div>
+                                            <div className="text-sm text-gray-400">{stat.label}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <a
+                            href="/about-us/"
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-orange-700 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
+                        >
+                            <span className="tracking-tight">Discover Our Story</span>
+                            <MaterialIcon className="text-xl group-hover:translate-x-1 transition-transform">arrow_forward</MaterialIcon>
                         </a>
-                        {/* <a href="/contact-us/" className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-white">
-                            <div className="group md:text-lg text-base text-white font-bold bg-transparent h-full hover:text-red-600 hover:bg-white px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                                <span className="tracking-tight">Contact Us</span>
-                                <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="invert group-hover:invert-0"/>
+                    </div>
+
+                    {/* Right Image with Overlay Design */}
+                    <div className="order-1 lg:order-2 relative">
+                        <div className="relative">
+                            {/* Main Image Container */}
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent z-10"></div>
+                                <Image
+                                    src="/home_about_image1.png"
+                                    alt="About AdsOnline"
+                                    width={600}
+                                    height={700}
+                                    className="object-cover w-full h-[500px] md:h-[600px]"
+                                />
                             </div>
-                        </a> */}
+
+                            {/* Floating Card */}
+                            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl max-w-xs hidden md:block">
+                                <div className="flex items-center gap-4">
+                                    <div className="p-3 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl">
+                                        <MaterialIcon className="text-3xl text-white">emoji_events</MaterialIcon>
+                                    </div>
+                                    <div>
+                                        <div className="text-sm text-gray-600 font-medium">Google Premier</div>
+                                        <div className="text-xl font-bold text-gray-900">Partner 2024</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Decorative Geometric Shapes */}
+                            <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl opacity-80 -z-10 hidden lg:block"></div>
+                            <div className="absolute -bottom-8 -right-8 w-32 h-32 border-4 border-red-500/30 rounded-2xl -z-10 hidden lg:block"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 export default AboutSection;
 // END:AboutSection

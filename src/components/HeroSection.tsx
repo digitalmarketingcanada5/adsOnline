@@ -1,5 +1,5 @@
 // START:HeroSection
-// Hero      description: "Advanced analytics that turn conversations into conversions.",Section Component
+// Hero Section Component
 "use client";
 import React from "react";
 import MaterialIcon from "./MaterialIcon";
@@ -7,143 +7,173 @@ import { useChatBot } from "@/contexts/ChatBotContext";
 
 const HeroSection = () => {
   const { openModal } = useChatBot();
+
   const features = [
     {
       icon: "layers_clear",
       title: "No Contracts",
-      description: "Freedom to adapt - month-to-month partnerships built on performance.",
+      description: "Month-to-month flexibility that adapts to your business needs.",
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: "account_balance_wallet",
       title: "Flexible Budgets",
-      description: "Scale up or down seamlessly - your success drives your investment.",
+      description: "Scale investments up or down based on your growth trajectory.",
+      gradient: "from-purple-500 to-pink-500"
     },
     {
       icon: "money_off",
       title: "Flat-rate Fee",
-      description: "Transparent pricing that grows with you, not against you.",
+      description: "Transparent, predictable pricing with no hidden surprises.",
+      gradient: "from-orange-500 to-red-500"
     },
     {
       icon: "auto_awesome",
       title: "Call Intelligence™",
-      description: "We show you what’s working and what’s not.",
+      description: "Real-time insights into what drives your conversions.",
+      gradient: "from-green-500 to-emerald-500"
     },
   ];
 
   return (
-    <section className="hero-banner overflow-hidden relative bg-white">
-      {/* Background Shape */}
-      <div
-        className="hidden lg:block w-full h-full absolute -top-20 lg:scale-[1.5] xl:scale-[1.8] z-0 left-1/2 -translate-x-1/2"
-        style={{
-          backgroundImage:
-            "url(https://cdn.searchkings.ca/img/home/bg-hero-circle-70a6436575.svg)",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom",
-          backgroundSize: "cover",
-        }}
-      ></div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+      </div>
 
-      {/* Hero Top */}
-      <div className="container px-4 sm:px-12 lg:px-16 pb-12 md:pb-20 mx-auto relative flex flex-col items-start xl:min-h-[550px]">
-        <div className="relative z-10 flex flex-col justify-center w-full mx-auto h-full mt-0 mb-0 items-center pt-24 md:pt-40">
-          <div className="w-full lg:w-4/5 flex lg:justify-center flex-col">
-            <h1 className="mb-0 mt-0 pb-0 w-full mx-auto text-4xl tracking-tight md:text-5xl xl:text-6xl lg:text-center font-bold !leading-tight text-gray-800">
-              Drive Growth with
-              <br /> Smart Digital Advertising
-            </h1>
-            <div className="pt-0 flex md:items-center lg:justify-center w-full flex-col md:flex-row gap-0 md:gap-4 mt-4">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <img
-                    key={i}
-                    src="/images/star.png"
-                    alt="star"
-                    className="w-6 h-6"
-                  />
-                ))}
-              </div>
-              <span className="text-base lg:text-xl font-light text-gray-600">
-                1,005+ Google Customer Reviews{" "}
-                <span className="hidden md:inline">|</span>{" "}
-                <br className="md:hidden" />
-                Helping 300+ businesses thrive online
+      {/* Hero Content */}
+      <div className="container px-4 sm:px-12 lg:px-16 mx-auto relative">
+        <div className="relative z-10 pt-20 md:pt-32 pb-16 md:pb-24">
+          {/* Main Headline */}
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
               </span>
+              <span className="text-sm font-semibold text-red-700">Award-Winning Digital Advertising</span>
             </div>
-            <div className="flex flex-wrap gap-4 lg:justify-center mt-6">
+
+            <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold !leading-tight mb-6">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-red-600 to-gray-900">
+                Transform Clicks
+              </span>
+              <br />
+              <span className="text-gray-900">Into Customers</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed">
+              Data-driven advertising strategies that deliver measurable results.
+              We help businesses grow with intelligent campaigns and transparent partnerships.
+            </p>
+
+            {/* Social Proof */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <div className="flex items-center gap-2">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-red-400 to-red-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+                      {i}
+                    </div>
+                  ))}
+                </div>
+                <span className="text-sm font-medium text-gray-700">1,005+ Reviews</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+              <div className="flex items-center gap-2">
+                <MaterialIcon className="text-green-600 text-xl">verified</MaterialIcon>
+                <span className="text-sm font-medium text-gray-700">300+ Active Clients</span>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:+1-437-432-6746"
-                className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
               >
-                <div className="group md:text-lg text-base text-white font-bold bg-gradient-to-r from-red-600 to-red-500 h-full hover:from-black hover:to-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                  <img
-                    src="https://cdn.searchkings.ca/img/icons/call-50d0164ee7.svg"
-                    width="24"
-                    height="24"
-                    alt="call Icon"
-                    className="invert group-hover:invert"
-                  />
-                  <span className="tracking-tight">Call Us</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-black to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative flex items-center gap-2">
+                  <MaterialIcon className="text-xl">phone</MaterialIcon>
+                  <span>Call +1-437-432-6746</span>
                 </div>
               </a>
+
               <button
                 onClick={openModal}
-                className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-black"
+                className="group px-8 py-4 bg-white text-gray-900 font-bold rounded-xl border-2 border-gray-300 hover:border-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
               >
-                <div className="group md:text-lg text-base text-black font-bold bg-white h-full hover:text-white hover:bg-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                  <img
-                    src="https://cdn.searchkings.ca/img/icons/forum-30619bb514.svg"
-                    width="24"
-                    height="24"
-                    alt="forum Icon"
-                    className="group-hover:invert"
-                  />
-                  <span className="tracking-tight">Chat with Us</span>
+                <div className="flex items-center gap-2">
+                  <MaterialIcon className="text-xl group-hover:text-red-600 transition-colors">chat</MaterialIcon>
+                  <span>Start Free Consultation</span>
                 </div>
               </button>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Hero Bottom */}
-      <div className="py-8 md:py-12 px-4 sm:px-12 lg:px-16">
-        <div className="container mx-auto relative z-10 justify-center items-stretch flex flex-col bg-gray-50 rounded-2xl p-4 md:p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl mb-4 font-bold text-gray-800">
-              Your Success, Our Mission
-            </h2>
-            <p className="text-lg font-light text-gray-600 max-w-3xl mx-auto">
-              Experience the AdsOnline difference with transparent partnerships, 
-              data-driven strategies, and cutting-edge technology that delivers 
-              measurable results for your business.
-            </p>
-          </div>
+        {/* Features Grid */}
+        <div className="relative z-10 pb-16 md:pb-24">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why Choose AdsOnline?
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Transparent partnerships backed by cutting-edge technology and proven strategies.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="flex justify-center mb-4">
-                  <img
-                    src="/images/star.png"
-                    alt={feature.title}
-                    className="w-12 h-12"
-                  />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {features.map((feature, index) => (
+                <div
+                  key={feature.title}
+                  className="group relative bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Gradient accent */}
+                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.gradient} rounded-t-2xl`}></div>
+
+                  {/* Icon with gradient background */}
+                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.gradient} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <MaterialIcon className="text-2xl text-white">{feature.icon}</MaterialIcon>
+                  </div>
+
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  {/* Hover decoration */}
+                  <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 rounded-tl-full transition-opacity duration-500`}></div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 font-light">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
 };

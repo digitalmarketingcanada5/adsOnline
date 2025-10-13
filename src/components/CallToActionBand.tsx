@@ -1,56 +1,125 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useChatBot } from "@/contexts/ChatBotContext";
+import MaterialIcon from "./MaterialIcon";
 
 const CallToActionBand = () => {
   const { openModal } = useChatBot();
+  const [variant, setVariant] = useState(0);
+
+  // Track which instance this is by incrementing a counter
+  useEffect(() => {
+    const ctaCount = document.querySelectorAll('[data-cta-band]').length;
+    setVariant(ctaCount % 3);
+  }, []);
+
+  const variants = [
+    {
+      bg: "bg-gradient-to-r from-red-600 via-orange-600 to-red-600",
+      text: "text-white",
+      title: "Ready to Transform Your Advertising?",
+      subtitle: "Connect with our team for a personalized strategy session",
+      buttonStyle: "primary"
+    },
+    {
+      bg: "bg-gradient-to-r from-blue-50 to-purple-50",
+      text: "text-gray-900",
+      title: "Let's Build Your Success Story",
+      subtitle: "Free consultation • No commitments • Expert guidance",
+      buttonStyle: "secondary"
+    },
+    {
+      bg: "bg-gradient-to-r from-gray-900 via-gray-800 to-black",
+      text: "text-white",
+      title: "Questions About Our Services?",
+      subtitle: "Our specialists are standing by to help you succeed",
+      buttonStyle: "tertiary"
+    }
+  ];
+
+  const current = variants[variant];
 
   return (
-    <section className="py-8 bg-gradient-to-r from-gray-50 to-gray-100 border-t border-b border-gray-200">
-      <div className="container mx-auto px-4 sm:px-12 lg:px-16">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-1">
-              Ready to grow your business?
+    <section
+      className={`py-12 md:py-16 ${current.bg} relative overflow-hidden`}
+      data-cta-band
+    >
+      {/* Decorative Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-12 lg:px-16 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left flex-1">
+            <h3 className={`text-2xl md:text-3xl font-bold ${current.text} mb-2`}>
+              {current.title}
             </h3>
-            <p className="text-sm md:text-base text-gray-600">
-              Get started with a free consultation today
+            <p className={`text-base md:text-lg ${current.text === 'text-white' ? 'text-gray-200' : 'text-gray-600'}`}>
+              {current.subtitle}
             </p>
           </div>
-          
-          <div className="flex flex-wrap gap-4 lg:justify-center mt-6">
-              <a
-                href="tel:+1-437-432-6746"
-                className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden"
-              >
-                <div className="group md:text-lg text-base text-white font-bold bg-gradient-to-r from-red-600 to-red-500 h-full hover:from-black hover:to-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                  <img
-                    src="https://cdn.searchkings.ca/img/icons/call-50d0164ee7.svg"
-                    width="24"
-                    height="24"
-                    alt="call Icon"
-                    className="invert group-hover:invert"
-                  />
-                  <span className="tracking-tight">Call Us</span>
-                </div>
-              </a>
-              <button
-                onClick={openModal}
-                className="shrink-0 w-max block no-underline shadow-xl rounded-full overflow-hidden border-2 border-black"
-              >
-                <div className="group md:text-lg text-base text-black font-bold bg-white h-full hover:text-white hover:bg-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                  <img
-                    src="https://cdn.searchkings.ca/img/icons/forum-30619bb514.svg"
-                    width="24"
-                    height="24"
-                    alt="forum Icon"
-                    className="group-hover:invert"
-                  />
-                  <span className="tracking-tight">Chat with Us</span>
-                </div>
-              </button>
-            </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            {current.buttonStyle === 'primary' && (
+              <>
+                <a
+                  href="tel:+1-437-432-6746"
+                  className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">phone</MaterialIcon>
+                  <span>+1-437-432-6746</span>
+                </a>
+                <button
+                  onClick={openModal}
+                  className="px-8 py-4 bg-transparent text-white font-bold rounded-xl border-2 border-white hover:bg-white hover:text-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">chat</MaterialIcon>
+                  <span>Start Chat</span>
+                </button>
+              </>
+            )}
+
+            {current.buttonStyle === 'secondary' && (
+              <>
+                <button
+                  onClick={openModal}
+                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">forum</MaterialIcon>
+                  <span>Get Free Consultation</span>
+                </button>
+                <a
+                  href="tel:+1-437-432-6746"
+                  className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl border-2 border-gray-200 hover:border-gray-400 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">call</MaterialIcon>
+                  <span>Call Now</span>
+                </a>
+              </>
+            )}
+
+            {current.buttonStyle === 'tertiary' && (
+              <>
+                <a
+                  href="tel:+1-437-432-6746"
+                  className="px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 text-white font-bold rounded-xl hover:from-red-700 hover:to-orange-700 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">support_agent</MaterialIcon>
+                  <span>Speak to Expert</span>
+                </a>
+                <button
+                  onClick={openModal}
+                  className="px-8 py-4 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                >
+                  <MaterialIcon className="text-xl">message</MaterialIcon>
+                  <span>Send Message</span>
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>
