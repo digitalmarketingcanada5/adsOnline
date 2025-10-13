@@ -33,26 +33,38 @@ const BetterDataSection = () => {
     ];
 
     return (
-        <section className="py-16 bg-gray-50">
-            <div className="container flex flex-col items-center gap-4 mx-auto px-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center">Better Data, Better Campaign Performance</h2>
+        <section className="py-20 bg-gray-50">
+            <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                        Better Data, Better Campaign Performance
+                    </h2>
+                </div>
             </div>
-            <div className="container mx-auto px-12 mt-8">
-                <div className="flex border-b border-black overflow-x-auto no-scrollbar lg:justify-center">
+            <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+                <div className="flex flex-wrap gap-3 mb-12 justify-center border-b border-gray-200 pb-4">
                     {tabs.map((tab, index) => (
-                        <button key={tab} onClick={() => setActiveTab(index)} className={`shrink-0 px-6 py-3 lg:text-xl font-medium border-b-4 transition-all ${activeTab === index ? 'border-red-500 text-gray-900' : 'border-transparent text-gray-500 hover:border-gray-300'}`}>
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTab(index)}
+                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 border-2 ${activeTab === index ? 'bg-gradient-to-br from-red-600 to-red-500 text-white border-red-600 scale-105 shadow-lg' : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300 hover:shadow-md'}`}
+                        >
                             {tab}
                         </button>
                     ))}
                 </div>
-                <div className="pt-8">
-                    <div className="grid lg:grid-cols-2 gap-8 items-center">
-                        <div className="flex flex-col gap-4 justify-center">
-                            <h3 className="text-2xl md:text-3xl font-bold leading-tight text-gray-800">{tabContents[activeTab].title}</h3>
-                            <p className="font-normal text-gray-600">{tabContents[activeTab].description}</p>
+                <div className="bg-white rounded-2xl shadow-md p-8 lg:p-12 border border-gray-100">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                        <div className="flex flex-col gap-6 justify-center">
+                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
+                                {tabContents[activeTab].title}
+                            </h3>
+                            <p className="text-base md:text-lg font-light text-gray-600 leading-relaxed">
+                                {tabContents[activeTab].description}
+                            </p>
                         </div>
-                        <div className="text-center">
-                            <img src={tabContents[activeTab].image} alt={tabContents[activeTab].title} className="max-w-full h-auto" />
+                        <div className="flex justify-center items-center">
+                            <img src={tabContents[activeTab].image} alt={tabContents[activeTab].title} className="max-w-full h-auto rounded-lg" />
                         </div>
                     </div>
                 </div>

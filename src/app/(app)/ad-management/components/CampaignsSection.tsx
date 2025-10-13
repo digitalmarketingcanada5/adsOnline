@@ -46,39 +46,50 @@ const CampaignsSection = () => {
     ];
 
     return (
-        <section className="py-16">
-            <div className="container px-12 mx-auto">
-                <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-800">Campaigns that can help you meet your goals</h2>
-                <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-600">Drive sales, leads, and site traffic by getting your business in front of people who are actively searching for products or services you offer.</p>
+        <section className="py-20 bg-gray-50">
+            <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                        Campaigns that can help you meet your goals
+                    </h2>
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light">
+                        Drive sales, leads, and site traffic by getting your business in front of people who are actively searching for products or services you offer.
+                    </p>
+                </div>
             </div>
-            <div className="flex flex-col lg:flex-row container gap-8 justify-center px-12 mx-auto">
-                <div className="flex justify-center lg:w-1/3 w-full">
-                    <ul className="w-full flex flex-wrap sm:flex-nowrap lg:flex-col md:justify-center">
-                        {tabs.map((tab, index) => (
-                            <li key={tab.name} className="w-full sm:w-auto flex">
-                                <div onClick={() => setActiveTab(index)} className={`rounded-full flex justify-between items-center gap-6 px-8 py-4 mx-1 my-3 sm:mx-3 shadow-md lg:shadow-lg lg:w-[200px] w-full cursor-pointer transition-all ${activeTab === index ? 'bg-gradient-to-tr from-yellow-400 to-yellow-300 text-black' : 'bg-gray-800 text-white'}`}>
-                                    {tab.name}
-                                    <MaterialIcon>{tab.icon}</MaterialIcon>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="flex items-center justify-center lg:w-1/3 w-full">
-                    <img src={tabContent[activeTab].image} alt={tabContent[activeTab].title} className="max-w-full h-auto" />
-                </div>
-                <div className="flex items-center lg:w-1/3 w-full">
-                    <div>
-                        <h3 className="text-2xl font-bold mb-4">{tabContent[activeTab].title}</h3>
-                        <p className="font-light text-gray-600">{tabContent[activeTab].text}</p>
-                        {tabContent[activeTab].button && (
-                             <a href={tabContent[activeTab].button.href} className="shrink-0 w-max block mt-4 no-underline shadow-xl rounded-full overflow-hidden bg-gradient-to-r from-red-600 to-red-500">
-                                <div className="group md:text-lg text-base text-white font-bold h-full hover:from-black hover:to-black px-7 py-3 flex items-center gap-2 transition-all duration-300">
-                                    <span className="tracking-tight">{tabContent[activeTab].button.text}</span>
-                                    <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="invert group-hover:invert" />
-                                </div>
-                            </a>
-                        )}
+            <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+                <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+                    <div className="flex justify-center lg:w-1/3">
+                        <ul className="w-full flex flex-wrap sm:flex-nowrap lg:flex-col gap-3">
+                            {tabs.map((tab, index) => (
+                                <li key={tab.name} className="w-full sm:w-auto flex">
+                                    <button
+                                        onClick={() => setActiveTab(index)}
+                                        className={`rounded-2xl flex justify-between items-center gap-6 px-6 py-4 shadow-md hover:shadow-lg w-full cursor-pointer transition-all duration-300 ${activeTab === index ? 'bg-gradient-to-br from-[#0075E3] to-[#0060c2] text-white scale-105' : 'bg-white text-gray-700 hover:bg-gray-50'}`}
+                                    >
+                                        <span className="font-semibold">{tab.name}</span>
+                                        <MaterialIcon className="text-2xl">{tab.icon}</MaterialIcon>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="flex items-center justify-center lg:w-1/3 bg-white rounded-2xl p-8 shadow-md">
+                        <img src={tabContent[activeTab].image} alt={tabContent[activeTab].title} className="max-w-full h-auto rounded-lg" />
+                    </div>
+                    <div className="flex items-center lg:w-1/3 bg-white rounded-2xl p-8 shadow-md">
+                        <div className="space-y-4">
+                            <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{tabContent[activeTab].title}</h3>
+                            <p className="text-base md:text-lg font-light text-gray-600 leading-relaxed">{tabContent[activeTab].text}</p>
+                            {tabContent[activeTab].button && (
+                                <a href={tabContent[activeTab].button.href} className="inline-block mt-6 no-underline shadow-lg rounded-full overflow-hidden bg-gradient-to-r from-[#0075E3] to-[#0060c2] hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                    <div className="group md:text-lg text-base text-white font-bold px-7 py-3 flex items-center gap-2">
+                                        <span className="tracking-tight">{tabContent[activeTab].button.text}</span>
+                                        <img src="https://cdn.searchkings.ca/img/icons/arrow_outward-87ed9f5456.svg" width="24" height="24" alt="arrow_outward Icon" className="invert" />
+                                    </div>
+                                </a>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

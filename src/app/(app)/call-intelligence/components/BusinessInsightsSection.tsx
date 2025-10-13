@@ -46,53 +46,55 @@ const BusinessInsightsSection = () => {
   ];
 
   return (
-    <section className="py-16">
-      <div className="container px-12 mx-auto">
-        <h2 className="md:text-center text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
-          Powerful Business Insights
-        </h2>
-        <p className="lg:w-[85%] w-full mx-auto mb-8 font-light md:text-center text-gray-700 dark:text-gray-300">
-          Our AdsOnline app lets you see your Call Intelligence™ data and how
-          you&apos;re doing at any time, from anywhere.
-        </p>
-      </div>
-      <div className="flex flex-col container justify-center px-12 lg:gap-8 lg:flex-row mx-auto">
-        <div className="flex justify-end w-full lg:w-1/4">
-          <ul className="w-full flex flex-wrap overflow-x-auto no-scrollbar sm:py-2 sm:overflow-y-auto sm:gap-7 sm:flex-nowrap md:justify-center lg:flex-col">
-            {tabs.map((tab, index) => (
-              <li key={tab.name} className="w-full flex min-w-[160px]">
-                <div
-                  onClick={() => setActiveTab(index)}
-                  className={`w-full flex items-center gap-2 px-4 py-5 justify-center rounded-full sm:rounded-lg sm:justify-start sm:py-2 lg:shadow-lg cursor-pointer transition-all ${activeTab === index ? "bg-gray-800 text-white dark:bg-gray-200 dark:text-gray-900" : "bg-white text-black shadow-md dark:bg-gray-700 dark:text-white"}`}
-                >
-                  <MaterialIcon className="hidden sm:block">
-                    {tab.icon}
-                  </MaterialIcon>
-                  <span className="text-base text-balance xl:text-xl">
-                    {tab.name}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
+    <section className="py-20 bg-white">
+      <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Powerful Business Insights
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light">
+            Our AdsOnline app lets you see your Call Intelligence™ data and how
+            you&apos;re doing at any time, from anywhere.
+          </p>
         </div>
-        <div className="flex items-center justify-center py-8 lg:w-1/2">
-          <div className="relative flex flex-col items-center justify-center gap-8 bg-gray-800 rounded-3xl w-full overflow-hidden p-4 sm:p-8 sm:h-[400px] lg:w-[660px]">
+      </div>
+      <div className="container px-6 md:px-12 mx-auto max-w-7xl">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="flex justify-center lg:w-1/3">
+            <ul className="w-full flex flex-wrap sm:flex-nowrap lg:flex-col gap-3">
+              {tabs.map((tab, index) => (
+                <li key={tab.name} className="w-full flex">
+                  <button
+                    onClick={() => setActiveTab(index)}
+                    className={`w-full flex items-center gap-3 px-6 py-4 rounded-2xl shadow-md hover:shadow-lg cursor-pointer transition-all duration-300 ${activeTab === index ? "bg-gradient-to-br from-red-600 to-red-500 text-white scale-105" : "bg-white text-gray-700 hover:bg-gray-50"}`}
+                  >
+                    <MaterialIcon className="text-2xl">
+                      {tab.icon}
+                    </MaterialIcon>
+                    <span className="text-base font-semibold text-left">
+                      {tab.name}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center justify-center lg:w-1/3 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-md p-8">
             <img
               src={tabContent[activeTab].image}
               alt={tabContent[activeTab].title}
-              className="w-fit"
+              className="max-w-full h-auto"
             />
           </div>
-        </div>
-        <div className="flex items-center lg:w-1/4 w-full">
-          <div className="xl:max-w-[390px]">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              {tabContent[activeTab].title}
-            </h3>
-            <p className="font-light text-gray-700 dark:text-gray-300">
-              {tabContent[activeTab].text}
-            </p>
+          <div className="flex items-center lg:w-1/3 bg-gray-50 rounded-2xl p-8 shadow-md border border-gray-100">
+            <div className="space-y-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                {tabContent[activeTab].title}
+              </h3>
+              <p className="text-base md:text-lg font-light text-gray-600 leading-relaxed">
+                {tabContent[activeTab].text}
+              </p>
+            </div>
           </div>
         </div>
       </div>
