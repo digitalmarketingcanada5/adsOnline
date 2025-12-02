@@ -83,6 +83,7 @@ export default function AppLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-17425030136');
+            gtag('config', 'G-PMVNZ6DBFQ');
           `}
         </Script>
       </head>
